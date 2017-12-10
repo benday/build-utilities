@@ -1,0 +1,18 @@
+﻿{
+  "FirstLevel": "FirstLevelValue", 
+  "ConnectionStrings": {
+    "DefaultConnectionString": "default-connection-string-value"
+  },
+  "Logging": {
+    "IncludeScopes": false,
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  },
+  "CustomConfig": {
+    "Value1": "value1-value",
+    "Value2": "value2-value"
+  }
+}

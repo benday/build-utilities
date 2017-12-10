@@ -1,0 +1,103 @@
+{
+  "manifestVersion": 1,
+  "id": "build-task",
+  "name": "Build & Release Tools",
+  "version": "1.14.0",
+  "publisher": "bendayconsulting",
+  "public": true,
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "links": {
+    "support": {
+      "uri": "https://www.benday.com"
+    }
+  },
+  "description": "Miscellaneous utilities that you might need for your TFS Builds and Releases.  Edit connection strings and values in app.config, web.config, and appsettings.json.",
+  "categories": [
+    "Build and release"
+  ],
+  "content": {
+    "details": {
+      "path": "overview.md"
+    },
+    "license": {
+      "path": "license-terms.md"
+    }
+  },
+  "screenshots": [
+    {
+      "path": "screenshots/screenshot1-the-three-tasks.png"
+    },
+    {
+      "path": "screenshots/screenshot2-update-connection-string-in-appsettings-json.png"
+    },
+    {
+      "path": "screenshots/screenshot3-update-connection-string-in-web-config.png"
+    },
+    {
+      "path": "screenshots/screenshot4-set-appsetting-in-web-config.png"
+    }
+  ],
+  "icons": {
+    "default": "images/extension-icon.png"
+  },
+  "files": [
+    {
+      "path": "setappconfigconnectionstring"
+    },
+    {
+      "path": "setjsonconfigconnectionstring"
+    },
+    {
+      "path": "setappconfigappsetting"
+    },
+    {
+      "path": "deployefcoremigrations"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "setappconfigconnectionstring",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "setappconfigconnectionstring"
+      }
+    },
+    {
+      "id": "setjsonconfigconnectionstring",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "setjsonconfigconnectionstring"
+      }
+    },
+    {
+      "id": "setappconfigappsetting",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "setappconfigappsetting"
+      }
+    },
+    {
+      "id": "deployefcoremigrations",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "deployefcoremigrations"
+      }
+    }
+  ]
+}

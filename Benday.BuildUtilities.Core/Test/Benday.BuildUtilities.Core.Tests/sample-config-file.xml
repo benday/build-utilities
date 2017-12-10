@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <!--
+    Configure your application settings in appsettings.json. Learn more at http://go.microsoft.com/fwlink/?LinkId=786380
+  -->
+  <appSettings>
+    <add key="SettingWithATokenInTheValue" value="%%token%%" />
+    <add key="SettingWithAValue" value="this is a value" />
+  </appSettings>
+
+  <connectionStrings>
+    <add 
+      name="(default)" 
+      providerName="System.Data.SqlClient" 
+      connectionString="default-connection-string" />
+  </connectionStrings>
+
+  <subelement1>
+    <subelement2>subelement2.value</subelement2>
+  </subelement1>
+
+  <system.webServer>
+    <handlers>
+      <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModule" resourceType="Unspecified" />
+    </handlers>
+    <aspNetCore 
+      processPath="aspnetcore.processpath" 
+      arguments="aspnetcore.arguments" stdoutLogEnabled="false" stdoutLogFile=".\logs\stdout" forwardWindowsAuthToken="false" />
+  </system.webServer>
+  
+</configuration>

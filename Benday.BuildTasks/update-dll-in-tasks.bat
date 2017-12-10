@@ -1,0 +1,3 @@
+copy ..\Benday.BuildUtilities.Core\src\Benday.BuildUtilities.Core.ConsoleUi\bin\Debug\netcoreapp1.1\BendayBuildConfigUtilCore.dll .\setappconfigappsetting
+copy ..\Benday.BuildUtilities.Core\src\Benday.BuildUtilities.Core.ConsoleUi\bin\Debug\netcoreapp1.1\BendayBuildConfigUtilCore.dll .\setappconfigconnectionstring
+copy ..\Benday.BuildUtilities.Core\src\Benday.BuildUtilities.Core.ConsoleUi\bin\Debug\netcoreapp1.1\BendayBuildConfigUtilCore.dll .\setjsonconfigconnectionstring
