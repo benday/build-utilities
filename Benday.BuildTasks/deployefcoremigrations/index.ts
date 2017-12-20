@@ -4,12 +4,24 @@ import mod = require('./taskmod');
 import path = require('path');
 import os = require('os');
 
+function isEmpty(str) {
+    return (!str || 0 === str.length);
+}
+
 async function run() {
     try {
         
         let tool: trm.ToolRunner;
         
         let dotnetPath = tl.which('dotnet');
+
+        if (isEmpty(dotnetPath)) {
+            console.error('Path to dotnet is empty.  Do you have .NET Core installed on this build agent?');
+            tl.setResult(tl.TaskResult.Failed, 'Path to dotnet is empty.  Do you have .NET Core installed on this build agent?');
+        }
+        else {
+            console.log('Using dotnet located at ' + dotnetPath);
+        }
 
         let pathToEfDll = path.join(__dirname, 'ef.dll')
         
@@ -50,8 +62,17 @@ async function run() {
         let rc1: number = await tool.exec();
         
         console.log('Completed with return code ' + rc1);
+
+        if (rc1 == 0) {
+            // this is fine
+        }
+        else {
+            console.error('Something went wrong.  Do you have .NET Core installed on this build agent?');
+            tl.setResult(tl.TaskResult.Failed, 'Something went wrong.  Do you have .NET Core installed on this build agent?');
+        }
     }
     catch (err) {
+        console.error('Something went wrong.  Do you have .NET Core installed on this build agent?');
         tl.setResult(tl.TaskResult.Failed, err.message);
     }
 }
