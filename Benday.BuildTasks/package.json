@@ -11,5 +11,14 @@
   "devDependencies": {
     "typescript": "^2.4.2",
     "vsts-task-lib": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benday/build-utilities.git"
+  },
+  "homepage": "https://github.com/benday/build-utilities/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/benday/build-utilities/issues",
+    "email": "info@benday.com"
   }
 }
