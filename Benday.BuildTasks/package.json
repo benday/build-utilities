@@ -9,8 +9,8 @@
   "author": "bendayconsulting",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^2.4.2",
-    "vsts-task-lib": "^2.1.0"
+    "typescript": "^2.7.2",
+    "vsts-task-lib": "^2.2.1"
   },
   "repository": {
     "type": "git",

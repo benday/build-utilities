@@ -6,6 +6,8 @@ namespace Benday.BuildUtilities.Core.ConsoleUi
 {
     class Program
     {
+        private static string _VersionNumber = "v1.201802160815";
+        
         static void Main(string[] args)
         {
             if (args.Length == 0)
@@ -78,6 +80,7 @@ namespace Benday.BuildUtilities.Core.ConsoleUi
 
             builder.AppendLine();
             builder.AppendLine("Build & Configuration Utilities for .NET Core");
+            builder.AppendLine(_VersionNumber);
             builder.AppendLine("Benjamin Day Consulting, Inc.");
             builder.AppendLine("www.benday.com");
             builder.AppendLine();

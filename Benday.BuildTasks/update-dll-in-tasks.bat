@@ -1,3 +1,7 @@
-copy ..\Benday.BuildUtilities.Core\src\Benday.BuildUtilities.Core.ConsoleUi\bin\Debug\netcoreapp1.1\BendayBuildConfigUtilCore.dll .\setappconfigappsetting
-copy ..\Benday.BuildUtilities.Core\src\Benday.BuildUtilities.Core.ConsoleUi\bin\Debug\netcoreapp1.1\BendayBuildConfigUtilCore.dll .\setappconfigconnectionstring
-copy ..\Benday.BuildUtilities.Core\src\Benday.BuildUtilities.Core.ConsoleUi\bin\Debug\netcoreapp1.1\BendayBuildConfigUtilCore.dll .\setjsonconfigconnectionstring
+set VersionToInclude=netcoreapp2.0
+set FromPath=..\Benday.BuildUtilities.Core\published
+set FileOrFilesToCopy=*.*
+
+copy %FromPath%\%FileOrFilesToCopy% .\setappconfigappsetting
+copy %FromPath%\%FileOrFilesToCopy% .\setappconfigconnectionstring
+copy %FromPath%\%FileOrFilesToCopy% .\setjsonconfigconnectionstring
