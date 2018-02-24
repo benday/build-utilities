@@ -9,8 +9,8 @@
   "author": "bendayconsulting",
   "license": "ISC",
   "dependencies": {
-    "@types/es6-promise": "^3.3.0",
     "path": "^0.12.7",
+    "typings": "^2.1.1",
     "vsts-task-lib": "^2.2.1"
   },
   "devDependencies": {

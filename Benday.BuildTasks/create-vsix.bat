@@ -2,25 +2,33 @@ set "base=%cd%"
 
 cd setappconfigconnectionstring
 
-tsc
+call tsc
+
+echo finished compiling setappconfigconnectionstring
 
 cd %base%
 
 cd setappconfigappsetting
 
-tsc
+call tsc
 
 cd %base%
 
 cd setjsonconfigconnectionstring
 
-tsc
+call tsc
 
 cd %base%
 
 cd deployefcoremigrations
 
-tsc
+call tsc
+
+cd %base%
+
+cd setjsonvalue
+
+call tsc
 
 cd %base%
 

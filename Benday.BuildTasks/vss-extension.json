@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "build-task",
   "name": "Build & Release Tools",
-  "version": "1.24.0",
+  "version": "1.29.0",
   "publisher": "bendayconsulting",
   "public": true,
   "targets": [
@@ -55,6 +55,9 @@
       "path": "setappconfigappsetting"
     },
     {
+      "path": "setjsonvalue"
+    },
+    {
       "path": "deployefcoremigrations"
     }
   ],
@@ -77,6 +80,16 @@
       ],
       "properties": {
         "name": "setjsonconfigconnectionstring"
+      }
+    },
+    {
+      "id": "setjsonvalue",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "setjsonvalue"
       }
     },
     {
