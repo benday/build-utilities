@@ -22,7 +22,12 @@ Here are the tasks:
 
 4. **Deploy Entity Framework Core Migrations from a DLL**
 
-   Entity Framework Core (EF Core) Migrations are simple to deploy if you have the source code.  But if you want to deploy EF Core migrations from a TFS Release, you almost definitely don't have access to the source code and you're trying to deploy your EF Core migrations using your already compiled DLLs.  This task helps you to easily deploy your EF Core 2.0 Migrations from a DLL.    
+   Entity Framework Core (EF Core) Migrations are simple to deploy if you have the source code.  But if you want to deploy EF Core migrations from a TFS Release, you almost definitely don't have access to the source code and you're trying to deploy your EF Core migrations using your already compiled DLLs.  This task helps you to easily deploy your EF Core 2.0 Migrations from a DLL.   
+
+5. **Set Property Value in JSON File**
+
+   This task helps you to set property values in a JSON file.  This is useful for when you need to set configuration values in 
+   appsettings.json.  Values can be nested in the JSON hierarchy up to 3 levels deep.  
 
 
 [Follow us on Twitter](https://twitter.com/benday) and if you're feeling especially motivated, come visit our [website](https://www.benday.com/) and [blog](https://www.benday.com/blog/). 
