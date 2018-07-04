@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "build-task",
   "name": "Build & Release Tools",
-  "version": "1.31.0",
+  "version": "1.32.0",
   "publisher": "bendayconsulting",
   "public": true,
   "targets": [
@@ -15,7 +15,7 @@
       "uri": "https://www.benday.com"
     }
   },
-  "description": "Miscellaneous utilities that you might need for your TFS Builds and Releases.  Edit connection strings and values in app.config, web.config, and appsettings.json.",
+  "description": "Miscellaneous utilities that you might need for your TFS Builds and Releases.  Deploy EF Core database migrations, edit connection strings and values in app.config, web.config, and appsettings.json.",
   "categories": [
     "Build and release"
   ],
