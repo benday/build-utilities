@@ -8,7 +8,7 @@
   "author": "bendayconsulting",
   "version": {
     "Major": "1",
-    "Minor": "29",
+    "Minor": "31",
     "Patch": 0
   },
   "instanceNameFormat": "Deploy EF Core migrations",
@@ -37,12 +37,36 @@
       "helpMarkDown": "Root namespace for the EF migrations."
     },
     {
+      "name": "startupDll",
+      "type": "filePath",
+      "label": "Startup DLL",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Full path to the DLL to start deploying migrations from. If you're publishing migrations from a web project, choose the web project DLL.  Otherwise, choose the migration DLL."
+    },
+    {
       "name": "depsJsonFile",
       "type": "filePath",
       "label": "Path to deps.json file",
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "Path to deps.json file."
+    },
+    {
+      "name": "runtimeConfigFile",
+      "type": "filePath",
+      "label": "Path to runtimeconfig.json file",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Path to runtimeconfig.json file."
+    },
+    {
+      "name": "dbContextClassName",
+      "type": "string",
+      "label": "Class name of the DbContext",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Class name of the dbcontext for the migrations without namespace."
     }
   ],
   "execution": {

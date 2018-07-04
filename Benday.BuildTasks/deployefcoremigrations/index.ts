@@ -1,10 +1,10 @@
+import * as os from "os";
+import path = require("path");
 import tl = require("vsts-task-lib/task");
 import trm = require("vsts-task-lib/toolrunner");
 import mod = require("./taskmod");
-import path = require("path");
-import * as os from "os";
 
-function isEmpty(str : string): boolean {
+function isEmpty(str: string): boolean {
     return (!str || 0 === str.length);
 }
 
@@ -13,28 +13,34 @@ async function run(): Promise<void> {
 
         let tool: trm.ToolRunner;
 
-        let dotnetPath : string = tl.which("dotnet");
+        const dotnetPath: string = tl.which("dotnet");
 
         if (isEmpty(dotnetPath)) {
-            console.error("Path to dotnet is empty.  Do you have .NET Core 2 installed on this build agent?");
-            tl.setResult(tl.TaskResult.Failed, "Path to dotnet is empty.  Do you have .NET Core installed on this build agent?");
+            tl.error("Path to dotnet is empty.  Do you have .NET Core 2 installed on this build agent?");
+            tl.setResult(tl.TaskResult.Failed,
+                "Path to dotnet is empty.  Do you have .NET Core installed on this build agent?");
         } else {
-            console.log("Using dotnet located at " + dotnetPath);
+            tl.debug("Using dotnet located at " + dotnetPath);
         }
 
-        let pathToEfDll : string = path.join(__dirname, "ef.dll");
+        const pathToEfDll: string = path.join(__dirname, "ef.dll");
 
-        let efMigrationsNamespace : string = tl.getInput("migrationsNamespace");
-        let efMigrationsDllName : string = tl.getInput("migrationsDll");
-        let efMigrationsDllDirectory : string = path.dirname(efMigrationsDllName);
+        const efMigrationsNamespace: string = tl.getInput("migrationsNamespace");
+        const efMigrationsDllName: string = tl.getInput("migrationsDll");
+        const efMigrationsDllDirectory: string = path.dirname(efMigrationsDllName);
 
         // change working directory
         tl.cd(efMigrationsDllDirectory);
 
-        let efMigrationsDllDepsJson : string = efMigrationsNamespace + ".deps.json";
+        const startupDllName: string = tl.getInput("startupDll");
+        const dbContextClassName: string = tl.getInput("dbContextClassName");
+
+        const efMigrationsDllDepsJson: string = efMigrationsNamespace + ".deps.json";
         // let efMigrationDllDepsJsonPath = path.join(efMigrationsDllDirectory, efMigrationsDllDepsJson)
-        let depsJsonFilePath : string = tl.getInput("depsJsonFile");
-        let pathToNuGetPackages : string = path.join(os.homedir(), ".nuget/packages");
+        const depsJsonFilePath: string = tl.getInput("depsJsonFile");
+        const runtimeConfigFilePath: string = tl.getInput("runtimeConfigFile");
+
+        const pathToNuGetPackages: string = path.join(os.homedir(), ".nuget/packages");
 
         tool = tl.tool(dotnetPath)
             .arg("exec")
@@ -42,34 +48,38 @@ async function run(): Promise<void> {
             .arg(depsJsonFilePath)
             .arg("--additionalprobingpath")
             .arg(pathToNuGetPackages)
+            .arg("--runtimeconfig")
+            .arg(runtimeConfigFilePath)
             .arg(pathToEfDll)
             .arg("database")
             .arg("update")
             .arg("--assembly")
             .arg(efMigrationsDllName)
             .arg("--startup-assembly")
-            .arg(efMigrationsDllName)
+            .arg(startupDllName)
             .arg("--project-dir")
             .arg(efMigrationsDllDirectory)
             .arg("--data-dir")
             .arg(efMigrationsDllDirectory)
+            .arg("--context")
+            .arg(dbContextClassName)
             .arg("--verbose")
             .arg("--root-namespace")
             .arg(efMigrationsNamespace);
 
+        const rc1: number = await tool.exec();
 
-        let rc1: number = await tool.exec();
-
-        console.log("Completed with return code " + rc1);
+        tl.debug("Completed call to tool with return code " + rc1);
 
         if (rc1 === 0) {
             // this is fine
         } else {
-            console.error("Something went wrong.  Do you have .NET Core installed on this build agent?");
-            tl.setResult(tl.TaskResult.Failed, "Something went wrong.  Do you have .NET Core installed on this build agent?");
+            tl.error("Something went wrong.  Do you have .NET Core installed on this build agent?");
+            tl.setResult(tl.TaskResult.Failed,
+                "Something went wrong.  Do you have .NET Core installed on this build agent?");
         }
     } catch (err) {
-        console.error("Something went wrong.  Do you have .NET Core installed on this build agent?");
+        tl.error("Something unexpected and bad happened.  Do you have .NET Core installed on this build agent?");
         tl.setResult(tl.TaskResult.Failed, err.message);
     }
 }

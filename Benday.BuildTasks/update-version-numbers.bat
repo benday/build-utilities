@@ -10,7 +10,7 @@ if "%1"=="" (
 :runcommands
 set MajorVersionNumber=1
 
-set PathToBendayBuildConfigUtilCoreDll=..\Benday.BuildUtilities.Core\src\Benday.BuildUtilities.Core.ConsoleUi\bin\Debug\netcoreapp1.1\BendayBuildConfigUtilCore.dll
+set PathToBendayBuildConfigUtilCoreDll=..\Benday.BuildUtilities.Core\src\Benday.BuildUtilities.Core.ConsoleUi\bin\Debug\netcoreapp2.0\BendayBuildConfigUtilCore.dll
 
 set RunTheDllCommmandBase=dotnet %PathToBendayBuildConfigUtilCoreDll% setjsonvalue
 
