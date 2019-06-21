@@ -10,9 +10,11 @@ if "%1"=="" (
 :runcommands
 set MajorVersionNumber=1
 
-set PathToBendayBuildConfigUtilCoreDll=..\Benday.BuildUtilities.Core\src\Benday.BuildUtilities.Core.ConsoleUi\bin\Debug\netcoreapp2.2\BendayBuildConfigUtilCore.dll
+set PathToBendayBuildConfigUtilCoreDll=..\Benday.BuildUtilities.Core\published\BendayBuildConfigUtilCore.dll
 
 set RunTheDllCommmandBase=dotnet %PathToBendayBuildConfigUtilCoreDll% setjsonvalue
+
+echo %RunTheDllCommmandBase%
 
 echo updating version in vss-extension.json
 set TheCommandPlusFilenameArg=%RunTheDllCommmandBase% /filename:.\vss-extension.json

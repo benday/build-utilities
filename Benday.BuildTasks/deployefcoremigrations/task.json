@@ -8,7 +8,7 @@
   "author": "bendayconsulting",
   "version": {
     "Major": "1",
-    "Minor": "33",
+    "Minor": "39",
     "Patch": 0
   },
   "instanceNameFormat": "Deploy EF Core migrations",
@@ -67,6 +67,23 @@
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "Class name of the dbcontext for the migrations without namespace."
+    },
+    {
+      "name": "deployMigrationByName",
+      "type": "boolean",
+      "label": "Deploy a specific migration by name",
+      "defaultValue": "false",
+      "required": true,
+      "helpMarkDown": "If true, this deploys a named migration.  If false, this deploys all migrations."
+    },
+    {
+      "name": "migrationName",
+      "type": "string",
+      "label": "Migration name",
+      "defaultValue": "",
+      "required": false,
+      "visibleRule": "deployMigrationByName = true",
+      "helpMarkDown": "Name of the migration to deploy."
     }
   ],
   "execution": {

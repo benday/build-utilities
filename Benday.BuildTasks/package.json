@@ -9,7 +9,7 @@
   "author": "bendayconsulting",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^2.7.2",
+    "typescript": "^2.9.2",
     "vsts-task-lib": "^2.2.1"
   },
   "repository": {
@@ -22,6 +22,7 @@
     "email": "info@benday.com"
   },
   "dependencies": {
-    "tfx-cli": "^0.7.6"
+    "tfx-cli": "^0.7.6",
+    "tslint": "^5.18.0"
   }
 }

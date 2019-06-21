@@ -1,13 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>netcoreapp2.2</TargetFrameworks>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <AssemblyName>BendayBuildConfigUtilCore</AssemblyName>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
-    <PackageReference Include="System.Xml.XPath" Version="4.3.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
+
 </Project>

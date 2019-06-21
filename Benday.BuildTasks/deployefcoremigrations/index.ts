@@ -42,7 +42,12 @@ async function run(): Promise<void> {
 
         const pathToNuGetPackages: string = path.join(os.homedir(), ".nuget/packages");
 
-        tool = tl.tool(dotnetPath)
+        const deployMigrationByName: boolean = tl.getBoolInput("deployMigrationByName", false);
+
+        if (deployMigrationByName === false) {
+            tl.debug("Deploying all available migrations.");
+
+            tool = tl.tool(dotnetPath)
             .arg("exec")
             .arg("--depsfile")
             .arg(depsJsonFilePath)
@@ -66,6 +71,39 @@ async function run(): Promise<void> {
             .arg("--verbose")
             .arg("--root-namespace")
             .arg(efMigrationsNamespace);
+        } else {
+            tl.debug("Deploying specific migration.");
+
+            const migrationName: string = tl.getInput("migrationName", true);
+
+            tl.debug("Migration name: " + migrationName);
+
+            tool = tl.tool(dotnetPath)
+            .arg("exec")
+            .arg("--depsfile")
+            .arg(depsJsonFilePath)
+            .arg("--additionalprobingpath")
+            .arg(pathToNuGetPackages)
+            .arg("--runtimeconfig")
+            .arg(runtimeConfigFilePath)
+            .arg(pathToEfDll)
+            .arg("database")
+            .arg("update")
+            .arg(migrationName)
+            .arg("--assembly")
+            .arg(efMigrationsDllName)
+            .arg("--startup-assembly")
+            .arg(startupDllName)
+            .arg("--project-dir")
+            .arg(efMigrationsDllDirectory)
+            .arg("--data-dir")
+            .arg(efMigrationsDllDirectory)
+            .arg("--context")
+            .arg(dbContextClassName)
+            .arg("--verbose")
+            .arg("--root-namespace")
+            .arg(efMigrationsNamespace);
+        }
 
         const rc1: number = await tool.exec();
 

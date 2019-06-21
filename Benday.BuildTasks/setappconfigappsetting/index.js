@@ -8,8 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const tl = require("vsts-task-lib/task");
 const path = require("path");
+const tl = require("vsts-task-lib/task");
 function isEmpty(str) {
     return (!str || 0 === str.length);
 }
@@ -17,7 +17,7 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             let tool;
-            let dotnetPath = tl.which("dotnet");
+            const dotnetPath = tl.which("dotnet");
             if (isEmpty(dotnetPath)) {
                 console.error("Path to dotnet is empty.  Do you have .NET Core 2 installed on this build agent?");
                 tl.setResult(tl.TaskResult.Failed, "Path to dotnet is empty.  Do you have .NET Core installed on this build agent?");
@@ -32,7 +32,7 @@ function run() {
                 .arg("/key:\"" + tl.getInput("keyname", true) + "\"")
                 .arg("/value:\"" + tl.getInput("appsettingsvalue", true) + "\"")
                 .arg("/version:true");
-            let rc1 = yield tool.exec();
+            const rc1 = yield tool.exec();
             console.log("Completed with return code " + rc1);
             if (rc1 === 0) {
                 // this is fine

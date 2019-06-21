@@ -39,30 +39,64 @@ function run() {
             const depsJsonFilePath = tl.getInput("depsJsonFile");
             const runtimeConfigFilePath = tl.getInput("runtimeConfigFile");
             const pathToNuGetPackages = path.join(os.homedir(), ".nuget/packages");
-            tool = tl.tool(dotnetPath)
-                .arg("exec")
-                .arg("--depsfile")
-                .arg(depsJsonFilePath)
-                .arg("--additionalprobingpath")
-                .arg(pathToNuGetPackages)
-                .arg("--runtimeconfig")
-                .arg(runtimeConfigFilePath)
-                .arg(pathToEfDll)
-                .arg("database")
-                .arg("update")
-                .arg("--assembly")
-                .arg(efMigrationsDllName)
-                .arg("--startup-assembly")
-                .arg(startupDllName)
-                .arg("--project-dir")
-                .arg(efMigrationsDllDirectory)
-                .arg("--data-dir")
-                .arg(efMigrationsDllDirectory)
-                .arg("--context")
-                .arg(dbContextClassName)
-                .arg("--verbose")
-                .arg("--root-namespace")
-                .arg(efMigrationsNamespace);
+            const deployMigrationByName = tl.getBoolInput("deployMigrationByName", false);
+            if (deployMigrationByName === false) {
+                tl.debug("Deploying all available migrations.");
+                tool = tl.tool(dotnetPath)
+                    .arg("exec")
+                    .arg("--depsfile")
+                    .arg(depsJsonFilePath)
+                    .arg("--additionalprobingpath")
+                    .arg(pathToNuGetPackages)
+                    .arg("--runtimeconfig")
+                    .arg(runtimeConfigFilePath)
+                    .arg(pathToEfDll)
+                    .arg("database")
+                    .arg("update")
+                    .arg("--assembly")
+                    .arg(efMigrationsDllName)
+                    .arg("--startup-assembly")
+                    .arg(startupDllName)
+                    .arg("--project-dir")
+                    .arg(efMigrationsDllDirectory)
+                    .arg("--data-dir")
+                    .arg(efMigrationsDllDirectory)
+                    .arg("--context")
+                    .arg(dbContextClassName)
+                    .arg("--verbose")
+                    .arg("--root-namespace")
+                    .arg(efMigrationsNamespace);
+            }
+            else {
+                tl.debug("Deploying specific migration.");
+                const migrationName = tl.getInput("migrationName", true);
+                tl.debug("Migration name: " + migrationName);
+                tool = tl.tool(dotnetPath)
+                    .arg("exec")
+                    .arg("--depsfile")
+                    .arg(depsJsonFilePath)
+                    .arg("--additionalprobingpath")
+                    .arg(pathToNuGetPackages)
+                    .arg("--runtimeconfig")
+                    .arg(runtimeConfigFilePath)
+                    .arg(pathToEfDll)
+                    .arg("database")
+                    .arg("update")
+                    .arg(migrationName)
+                    .arg("--assembly")
+                    .arg(efMigrationsDllName)
+                    .arg("--startup-assembly")
+                    .arg(startupDllName)
+                    .arg("--project-dir")
+                    .arg(efMigrationsDllDirectory)
+                    .arg("--data-dir")
+                    .arg(efMigrationsDllDirectory)
+                    .arg("--context")
+                    .arg(dbContextClassName)
+                    .arg("--verbose")
+                    .arg("--root-namespace")
+                    .arg(efMigrationsNamespace);
+            }
             const rc1 = yield tool.exec();
             tl.debug("Completed call to tool with return code " + rc1);
             if (rc1 === 0) {
