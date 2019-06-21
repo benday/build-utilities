@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
+using System.Linq;
 
 namespace Benday.BuildUtilities.Core.ConsoleUi
 {
@@ -39,10 +40,11 @@ namespace Benday.BuildUtilities.Core.ConsoleUi
             base.DisplayUsage(builder);
 
             string usageString =
-                String.Format("{0} {1} /{2}:connection-string [/{3}]",
+                String.Format("{0} {1} /{2}:connection-string [/{3}] [/{4}]",
                 Constants.ExeName,
                 CommandArgumentName,
                 Constants.ArgumentNameConnectionString,
+                Constants.ArgumentNameLastOnly,
                 Constants.ArgumentNameDebug);
 
             builder.AppendLine(usageString);
@@ -78,6 +80,15 @@ namespace Benday.BuildUtilities.Core.ConsoleUi
             }
             else
             {
+                if (ArgNameExists(Constants.ArgumentNameLastOnly) == true)
+                {
+                    var lastMigration = returnValues.Last();
+
+                    returnValues = new List<string>();
+
+                    returnValues.Add(lastMigration);
+                }
+
                 return returnValues;
             }
         }
@@ -131,8 +142,6 @@ namespace Benday.BuildUtilities.Core.ConsoleUi
 
         public override void Run()
         {
-            Console.WriteLine();
-
             DeployedMigrations = GetResult();
 
             foreach (var item in DeployedMigrations)

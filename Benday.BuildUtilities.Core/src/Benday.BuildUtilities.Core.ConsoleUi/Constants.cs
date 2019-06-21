@@ -27,5 +27,7 @@ namespace Benday.BuildUtilities.Core.ConsoleUi
         public static readonly string ArgumentNameAttributeName = "attributename";
         public static readonly string ArgumentNameConnectionString = "connectionstring";
         public static readonly string ArgumentNameDebug = "debug";
+        public static readonly string ArgumentNameLastOnly = "last";
+        
     }
 }
