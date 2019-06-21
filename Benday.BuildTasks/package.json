@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/benday/build-utilities/issues",
     "email": "info@benday.com"
+  },
+  "dependencies": {
+    "tfx-cli": "^0.7.6"
   }
 }

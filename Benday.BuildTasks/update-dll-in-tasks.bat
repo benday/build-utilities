@@ -1,4 +1,4 @@
-set VersionToInclude=netcoreapp2.0
+set VersionToInclude=netcoreapp2.2
 set FromPath=..\Benday.BuildUtilities.Core\published
 set FileOrFilesToCopy=*.*
 

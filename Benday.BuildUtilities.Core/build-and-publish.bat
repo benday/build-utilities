@@ -7,4 +7,4 @@ dotnet restore %ProjectToBuildAndPublish%
 
 dotnet build %ProjectToBuildAndPublish%
 
-dotnet publish %ProjectToBuildAndPublish% -o %PublishToDir% --framework netcoreapp2.0
+dotnet publish %ProjectToBuildAndPublish% -o %PublishToDir% --framework netcoreapp2.2
