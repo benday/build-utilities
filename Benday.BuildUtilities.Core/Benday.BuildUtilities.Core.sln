@@ -4,11 +4,11 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{97EED232-79C1-46BA-B476-C3594F499480}"
 EndProject
-Project("{13B669BE-BB05-4DDF-9536-439F39A36129}") = "Benday.BuildUtilities.Core.ConsoleUi", "src\Benday.BuildUtilities.Core.ConsoleUi\Benday.BuildUtilities.Core.ConsoleUi.csproj", "{A7BF1F2D-A7E9-4E87-B4C6-21AF489DE0D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benday.BuildUtilities.Core.ConsoleUi", "src\Benday.BuildUtilities.Core.ConsoleUi\Benday.BuildUtilities.Core.ConsoleUi.csproj", "{A7BF1F2D-A7E9-4E87-B4C6-21AF489DE0D5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D141D124-A964-4C40-BAAC-E00EF2B5E53B}"
 EndProject
-Project("{13B669BE-BB05-4DDF-9536-439F39A36129}") = "Benday.BuildUtilities.Core.Tests", "test\Benday.BuildUtilities.Core.Tests\Benday.BuildUtilities.Core.Tests.csproj", "{8947510F-4E6A-4121-A166-97A30110CB7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benday.BuildUtilities.Core.Tests", "test\Benday.BuildUtilities.Core.Tests\Benday.BuildUtilities.Core.Tests.csproj", "{8947510F-4E6A-4121-A166-97A30110CB7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

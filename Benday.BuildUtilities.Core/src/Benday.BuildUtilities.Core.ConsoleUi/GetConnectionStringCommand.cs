@@ -65,5 +65,5 @@ namespace Benday.BuildUtilities.Core.ConsoleUi
             Console.WriteLine();
             Console.WriteLine(GetResult());
         }
-    }
+    }    
 }
