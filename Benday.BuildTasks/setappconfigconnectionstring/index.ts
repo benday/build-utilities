@@ -15,8 +15,8 @@ async function run(): Promise<void> {
         let dotnetPath : string = tl.which("dotnet");
 
         if (isEmpty(dotnetPath)) {
-            console.error("Path to dotnet is empty.  Do you have .NET Core 2 installed on this build agent?");
-            tl.setResult(tl.TaskResult.Failed, "Path to dotnet is empty.  Do you have .NET Core installed on this build agent?");
+            console.error("Path to dotnet is empty.  Do you have .NET Core 2.2 installed on this build agent?");
+            tl.setResult(tl.TaskResult.Failed, "Path to dotnet is empty.  Do you have .NET Core 2.2 installed on this build agent?");
         } else {
             console.log("Using dotnet located at " + dotnetPath);
         }

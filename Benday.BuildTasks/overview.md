@@ -4,13 +4,13 @@ When you're doing builds and releases some things are kind of painful...or at le
 
 Once you install this extension, you'll see the following tasks when you open the Build/Release Task Catalog and go to the Utility section.  
 
-NOTE: this task requires .NET Core 2.0 or higher to be installed on your build agent.
+NOTE: this task requires .NET Core 2.2 or higher to be installed on your build agent.
 
 Here are the tasks:
 
 1. **Deploy Entity Framework Core Migrations from a DLL**
 
-   Entity Framework Core (EF Core) Migrations are simple to deploy if you have the source code.  But if you want to deploy EF Core migrations from a TFS Release, you almost definitely don't have access to the source code and you're trying to deploy your EF Core migrations using your already compiled DLLs.  This task helps you to easily deploy your EF Core 2.0 Migrations from a DLL.     
+   Entity Framework Core (EF Core) Migrations are simple to deploy if you have the source code.  But if you want to deploy EF Core migrations from a TFS Release, you almost definitely don't have access to the source code and you're trying to deploy your EF Core migrations using your already compiled DLLs.  This task helps you to easily deploy your EF Core Migrations from a DLL.  By default, it deploys all your migrations but you can also deploy a specific migration by supplying the migration name.
 
 2. **Set Connection String in App.config or Web.config**
 
@@ -31,3 +31,5 @@ Here are the tasks:
 
 
 [Follow us on Twitter](https://twitter.com/benday) and if you're feeling especially motivated, come visit our [website](https://www.benday.com/) and [blog](https://www.benday.com/blog/). 
+
+You can also view the code for this extension on [GitHub](https://github.com/benday/build-utilities).
