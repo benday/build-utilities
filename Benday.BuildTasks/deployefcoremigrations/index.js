@@ -20,8 +20,8 @@ function run() {
             let tool;
             const dotnetPath = tl.which("dotnet");
             if (isEmpty(dotnetPath)) {
-                tl.error("Path to dotnet is empty.  Do you have .NET Core 2 installed on this build agent?");
-                tl.setResult(tl.TaskResult.Failed, "Path to dotnet is empty.  Do you have .NET Core installed on this build agent?");
+                tl.error("Path to dotnet is empty.  Do you have .NET Core 2.2 installed on this build agent?");
+                tl.setResult(tl.TaskResult.Failed, "Path to dotnet is empty.  Do you have .NET Core 2.2 installed on this build agent?");
             }
             else {
                 tl.debug("Using dotnet located at " + dotnetPath);
