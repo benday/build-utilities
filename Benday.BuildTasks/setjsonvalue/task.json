@@ -1,6 +1,6 @@
 {
   "id": "c23a6305-299e-4871-8cba-1bca894d21dc",
-  "name": "setjsonconfigconnectionstring",
+  "name": "setjsonvalue",
   "friendlyName": "Set string value in a json file (appsettings.json)",
   "description": "Set a string value into a json file. The typical use case would be to set a configuration value into appsettings.json.",
   "helpMarkDown": "",
@@ -8,7 +8,7 @@
   "author": "bendayconsulting",
   "version": {
     "Major": "1",
-    "Minor": "46",
+    "Minor": "47",
     "Patch": 0
   },
   "instanceNameFormat": "Set string value in json file",
