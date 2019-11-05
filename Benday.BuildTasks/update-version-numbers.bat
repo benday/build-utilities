@@ -8,7 +8,7 @@ if "%1"=="" (
 )   
 
 :runcommands
-set MajorVersionNumber=2
+set MajorVersionNumber=1
 
 set PathToBendayBuildConfigUtilCoreDll=..\Benday.BuildUtilities.Core\published\BendayBuildConfigUtilCore.dll
 

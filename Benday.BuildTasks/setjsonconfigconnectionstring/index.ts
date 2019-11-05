@@ -1,8 +1,6 @@
+import tl = require("azure-pipelines-task-lib/task");
 import path = require("path");
-import tl = require("vsts-task-lib/task");
-import trm = require("vsts-task-lib/toolrunner");
 import { JsonEditor } from "./JsonEditor";
-import mod = require("./taskmod");
 
 function isEmpty(str: string): boolean {
     return (!str || 0 === str.length);
@@ -10,19 +8,42 @@ function isEmpty(str: string): boolean {
 
 async function run(): Promise<void> {
     try {
+        tl.debug("setjsonconfigconnectionstring starting....");
+
         const filename = tl.getInput("filename", true);
         const valueToSet = tl.getInput("connectionstringvalue", true);
         const key = tl.getInput("keyname", true);
 
-        const editor: JsonEditor = new JsonEditor();
+        tl.debug("filename: " + filename);
+        tl.debug("connection string value: " + valueToSet);
+        tl.debug("connection string name: " + key);
 
-        editor.open(filename);
+        const fileExists = tl.exist(filename);
 
-        editor.setConnectionString(key, valueToSet);
+        if (!fileExists) {
+            tl.error("Configuration file does not exist.");
+            tl.error("Expected configuration filename: " + filename);
+            tl.setResult(tl.TaskResult.Failed, "Configuration file does not exist.");
+        } else {
+            const editor: JsonEditor = new JsonEditor();
 
-        editor.save(filename);
+            tl.debug("Configuration file exists.");
+
+            tl.debug("opening file...");
+            editor.open(filename);
+            tl.debug("opened file");
+
+            tl.debug(editor.Contents);
+
+            tl.debug("setting connection string...");
+            editor.setConnectionString(key, valueToSet);
+
+            tl.debug("saving changes...");
+            editor.save(filename);
+            tl.debug("saved changes.");
+        }
     } catch (err) {
-        console.error("Something went wrong.");
+        tl.error("Something went wrong.");
         tl.setResult(tl.TaskResult.Failed, err.message);
     }
 }

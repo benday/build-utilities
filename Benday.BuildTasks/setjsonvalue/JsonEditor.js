@@ -1,92 +1,87 @@
-import * as fs from "fs";
-
-export class JsonEditor {
-    public Contents: string;
-    public PathToFile: string;
-    public ContentsAsJson: object;
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const fs = require("fs");
+class JsonEditor {
     constructor() {
         this.Contents = null;
     }
-
-    public open(filename: string): void {
+    open(filename) {
         const contents = fs.readFileSync(filename, "utf8");
-
         this.Contents = contents;
         this.PathToFile = filename;
         this.ContentsAsJson = JSON.parse(this.Contents.replace(/^\uFEFF/, ""));
     }
-
-    public save(filename: string): void {
-        fs.writeFileSync(filename,
-            JSON.stringify(this.ContentsAsJson), "utf8");
+    save(filename) {
+        fs.writeFileSync(filename, JSON.stringify(this.ContentsAsJson), "utf8");
     }
-
-    public getConnectionString(key: string): string {
+    getConnectionString(key) {
         return this.getValue("ConnectionStrings", key);
     }
-
-    public setConnectionString(key: string, value: string): void {
+    setConnectionString(key, value) {
         this.setValue(value, "ConnectionStrings", key);
     }
-
-    public getValue(key1: string, key2: string = null, key3: string = null): string {
+    getValue(key1, key2 = null, key3 = null) {
         if (this.ContentsAsJson === null) {
             return null;
-        } else if (key1 === null) {
+        }
+        else if (key1 === null) {
             return null;
-        } else {
-            let returnValue: string;
-
+        }
+        else {
+            let returnValue;
             if (key3 !== null &&
                 key2 !== null &&
                 key1 !== null &&
                 this.ContentsAsJson[key1] &&
                 this.ContentsAsJson[key1][key2]) {
                 returnValue = this.ContentsAsJson[key1][key2][key3];
-            } else if (key2 !== null && key1 !== null && this.ContentsAsJson[key1]) {
+            }
+            else if (key2 !== null && key1 !== null && this.ContentsAsJson[key1]) {
                 returnValue = this.ContentsAsJson[key1][key2];
-            } else {
+            }
+            else {
                 returnValue = this.ContentsAsJson[key1];
             }
-
             if (!returnValue) {
                 return null;
-            } else {
+            }
+            else {
                 return returnValue;
             }
         }
     }
-
-    public setValue(theValue: string, key1: string, key2: string = null, key3: string = null): void {
+    setValue(theValue, key1, key2 = null, key3 = null) {
         if (this.ContentsAsJson === null) {
             return;
         }
-
         if (key1 === null) {
             return;
-        } else if (key3 !== null && key2 !== null && key1 !== null) {
+        }
+        else if (key3 !== null && key2 !== null && key1 !== null) {
             this.ensureJsonPropertyExists(key1, key2);
             this.ContentsAsJson[key1][key2][key3] = theValue;
-        } else if (key2 !== null && key1 !== null) {
+        }
+        else if (key2 !== null && key1 !== null) {
             this.ensureJsonPropertyExists(key1);
             this.ContentsAsJson[key1][key2] = theValue;
-        } else {
+        }
+        else {
             this.ContentsAsJson[key1] = theValue;
         }
     }
-
-    private ensureJsonPropertyExists(key1: string, key2: string = null): void {
+    ensureJsonPropertyExists(key1, key2 = null) {
         if (key1 === null) {
             return;
-        } else if (!this.ContentsAsJson[key1]) {
+        }
+        else if (!this.ContentsAsJson[key1]) {
             this.ContentsAsJson[key1] = {};
         }
-
         if (key2 === null) {
             return;
-        } else if (!this.ContentsAsJson[key1][key2]) {
+        }
+        else if (!this.ContentsAsJson[key1][key2]) {
             this.ContentsAsJson[key1][key2] = {};
         }
     }
 }
+exports.JsonEditor = JsonEditor;

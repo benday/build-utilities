@@ -1,8 +1,6 @@
 import path = require("path");
 import tl = require("vsts-task-lib/task");
-import trm = require("vsts-task-lib/toolrunner");
 import { JsonEditor } from "./JsonEditor";
-import mod = require("./taskmod");
 
 function isEmpty(str: string): boolean {
     return (!str || 0 === str.length);
@@ -35,7 +33,7 @@ async function run(): Promise<void> {
             editor.save(filename);
         }
     } catch (err) {
-        console.error("Something went wrong.");
+        tl.error("Something went wrong.");
         tl.setResult(tl.TaskResult.Failed, err.message);
     }
 }
