@@ -1,47 +1,28 @@
+import path = require("path");
 import tl = require("vsts-task-lib/task");
 import trm = require("vsts-task-lib/toolrunner");
+import { JsonEditor } from "./JsonEditor";
 import mod = require("./taskmod");
-import path = require("path");
 
-function isEmpty(str : string): boolean {
+function isEmpty(str: string): boolean {
     return (!str || 0 === str.length);
 }
 
 async function run(): Promise<void> {
     try {
-        let tool: trm.ToolRunner;
+        const filename = tl.getInput("filename", true);
+        const valueToSet = tl.getInput("connectionstringvalue", true);
+        const key = tl.getInput("keyname", true);
 
-        let dotnetPath : string = tl.which("dotnet");
+        const editor: JsonEditor = new JsonEditor();
 
-        if (isEmpty(dotnetPath)) {
-            console.error("Path to dotnet is empty.  Do you have .NET Core 2.2 installed on this build agent?");
-            tl.setResult(tl.TaskResult.Failed, "Path to dotnet is empty.  Do you have .NET Core 2.2 installed on this build agent?");
-        } else {
-            console.log("Using dotnet located at " + dotnetPath);
-        }
+        editor.open(filename);
 
-        tool = tl.tool(dotnetPath).
-            arg(path.join(__dirname, "BendayBuildConfigUtilCore.dll"))
-            .arg("setjsonvalue")
-            .arg("/filename:\"" + tl.getInput("filename", true) + "\"")
-            .arg("/level1:ConnectionStrings")
-            .arg("/level2:\"" + tl.getInput("keyname", true) + "\"")
-            .arg("/value:\"" + tl.getInput("connectionstringvalue", true) + "\"")
-            .arg("/version:true")
-            ;
+        editor.setConnectionString(key, valueToSet);
 
-        let rc1: number = await tool.exec();
-
-        console.log("Completed with return code " + rc1);
-
-        if (rc1 === 0) {
-            // this is fine
-        } else {
-            console.error("Something went wrong.  Do you have .NET Core installed on this build agent?");
-            tl.setResult(tl.TaskResult.Failed, "Something went wrong.  Do you have .NET Core installed on this build agent?");
-        }
+        editor.save(filename);
     } catch (err) {
-        console.error("Something went wrong.  Do you have .NET Core installed on this build agent?");
+        console.error("Something went wrong.");
         tl.setResult(tl.TaskResult.Failed, err.message);
     }
 }

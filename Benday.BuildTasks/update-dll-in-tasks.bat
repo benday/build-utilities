@@ -4,5 +4,5 @@ set FileOrFilesToCopy=*.*
 
 copy %FromPath%\%FileOrFilesToCopy% .\setappconfigappsetting
 copy %FromPath%\%FileOrFilesToCopy% .\setappconfigconnectionstring
-copy %FromPath%\%FileOrFilesToCopy% .\setjsonconfigconnectionstring
-copy %FromPath%\%FileOrFilesToCopy% .\setjsonvalue
+rem copy %FromPath%\%FileOrFilesToCopy% .\setjsonconfigconnectionstring
+rem copy %FromPath%\%FileOrFilesToCopy% .\setjsonvalue
