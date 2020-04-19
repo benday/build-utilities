@@ -1,5 +1,13 @@
 set "base=%cd%"
 
+set "taskDirName=runsqlcmd"
+echo starting %taskDirName%
+cd %taskDirName%
+call npm update
+call npm audit fix
+echo finished %taskDirName%
+cd %base%
+
 set "taskDirName=setappconfigconnectionstring"
 echo starting %taskDirName%
 cd %taskDirName%
