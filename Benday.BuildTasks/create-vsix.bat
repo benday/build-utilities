@@ -1,5 +1,13 @@
 set "base=%cd%"
 
+cd runsqlcmd
+
+call tsc
+
+echo finished compiling runsqlcmd
+
+cd %base%
+
 cd setappconfigconnectionstring
 
 call tsc

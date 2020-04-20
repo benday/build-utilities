@@ -2,7 +2,7 @@ import * as os from "os";
 import path = require("path");
 import tl = require("vsts-task-lib/task");
 import trm = require("vsts-task-lib/toolrunner");
-import mod = require("./taskmod");
+// import mod = require("./taskmod");
 
 function isEmpty(str: string): boolean {
     return (!str || 0 === str.length);
@@ -33,7 +33,6 @@ async function run(): Promise<void> {
         const sqlServerDatabase: string = tl.getInput("sqlServerDatabase");
 
             tool = tl.tool(sqlcmdPath)
-            .arg("sqlcmd -S localhost -U sa -P Pa\$\$word -i ./misc/database/update-lookup-values.sql -d commerce")
             .arg("-S")
             .arg(serverName)
             .arg("-U")

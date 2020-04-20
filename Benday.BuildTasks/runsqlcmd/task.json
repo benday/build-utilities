@@ -8,7 +8,7 @@
   "author": "bendayconsulting",
   "version": {
     "Major": "1",
-    "Minor": "60",
+    "Minor": "63",
     "Patch": 0
   },
   "instanceNameFormat": "Run SQL using SqlCmd",
@@ -42,7 +42,7 @@
       "label": "User name",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "User name"
+      "helpMarkDown": "User name  (sql server auth)"
     },
     {
       "name": "sqlServerPassword",
@@ -50,7 +50,7 @@
       "label": "Password",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Password"
+      "helpMarkDown": "Password (sql server auth)"
     },
     {
       "name": "sqlServerDatabase",
