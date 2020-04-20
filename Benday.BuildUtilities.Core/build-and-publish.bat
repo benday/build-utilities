@@ -1,4 +1,4 @@
-SET PublishToDir=..\..\published\
+SET PublishToDir=.\published\
 SET ProjectToBuildAndPublish=.\src\Benday.BuildUtilities.Core.ConsoleUi\Benday.BuildUtilities.Core.ConsoleUi.csproj
 
 if exist %PublishToDir% (del %PublishToDir%\*.*)

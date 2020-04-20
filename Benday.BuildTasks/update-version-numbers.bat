@@ -55,6 +55,14 @@ echo updating major version number in setjsonvalue
 echo updating minor version number in setjsonvalue
 %TheCommandPlusFilenameArg% /level1:version /level2:Minor /value:%1
 
+set TheCommandPlusFilenameArg=%RunTheDllCommmandBase% /filename:.\runsqlcmd\task.json
+
+echo updating major version number in runsqlcmd
+%TheCommandPlusFilenameArg% /level1:version /level2:Major /value:%MajorVersionNumber%
+echo updating minor version number in runsqlcmd
+%TheCommandPlusFilenameArg% /level1:version /level2:Minor /value:%1
+
+
 echo.
 echo version numbers are updated
 
