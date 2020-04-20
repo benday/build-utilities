@@ -29,6 +29,9 @@ Here are the tasks:
    This task helps you to set property values in a JSON file.  This is useful for when you need to set configuration values in 
    appsettings.json.  Values can be nested in the JSON hierarchy up to 3 levels deep.  
 
+6. **Run SQL Script using SqlCmd**
+
+   This task lets you run the contents of a .sql file against SQL Server.  SqlCmd must already be installed on your build agent for this to work.  (BTW, did you know that you can install SqlCmd on MacOS and Linux?)
 
 [Follow us on Twitter](https://twitter.com/benday) and if you're feeling especially motivated, come visit our [website](https://www.benday.com/) and [blog](https://www.benday.com/blog/). 
 
