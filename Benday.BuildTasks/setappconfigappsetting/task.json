@@ -8,7 +8,7 @@
   "author": "bendayconsulting",
   "version": {
     "Major": "1",
-    "Minor": "66",
+    "Minor": "70",
     "Patch": 0
   },
   "instanceNameFormat": "Update value for '$(keyname)'",
