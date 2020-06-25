@@ -8,7 +8,7 @@
   "author": "bendayconsulting",
   "version": {
     "Major": "1",
-    "Minor": "65",
+    "Minor": "66",
     "Patch": 0
   },
   "instanceNameFormat": "Set string value in json file",

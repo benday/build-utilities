@@ -1,5 +1,5 @@
 import path = require("path");
-import tl = require("vsts-task-lib/task");
+import tl = require("azure-pipelines-task-lib/task");
 import { JsonEditor } from "./JsonEditor";
 
 function isEmpty(str: string): boolean {
