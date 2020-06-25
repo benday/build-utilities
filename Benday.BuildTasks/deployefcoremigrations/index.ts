@@ -16,9 +16,9 @@ async function run(): Promise<void> {
         const dotnetPath: string = tl.which("dotnet");
 
         if (isEmpty(dotnetPath)) {
-            tl.error("Path to dotnet is empty.  Do you have .NET Core 2.2 installed on this build agent?");
+            tl.error("Path to dotnet is empty.  Do you have .NET Core installed on this build agent?");
             tl.setResult(tl.TaskResult.Failed,
-                "Path to dotnet is empty.  Do you have .NET Core 2.2 installed on this build agent?");
+                "Path to dotnet is empty.  Do you have .NET Core installed on this build agent?");
         } else {
             tl.debug("Using dotnet located at " + dotnetPath);
         }
@@ -112,9 +112,9 @@ async function run(): Promise<void> {
         if (rc1 === 0) {
             // this is fine
         } else {
-            tl.error("Something went wrong.  Do you have .NET Core installed on this build agent?");
+            tl.error("Something went wrong while trying to deploy your migrations.");
             tl.setResult(tl.TaskResult.Failed,
-                "Something went wrong.  Do you have .NET Core installed on this build agent?");
+                "Something went wrong while trying to deploy your migrations.");
         }
     } catch (err) {
         tl.error("Something unexpected and bad happened.  Do you have .NET Core installed on this build agent?");

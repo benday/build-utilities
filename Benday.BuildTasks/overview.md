@@ -4,7 +4,7 @@ When you're doing builds and releases some things are kind of painful...or at le
 
 Once you install this extension, you'll see the following tasks when you open the Build/Release Task Catalog and go to the Utility section.  
 
-NOTE: this task requires .NET Core 2.2 or higher to be installed on your build agent.
+NOTE: this task requires .NET Core 3.1 or higher to be installed on your build agent.
 
 Here are the tasks:
 
