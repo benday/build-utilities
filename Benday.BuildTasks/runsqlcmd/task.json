@@ -8,7 +8,7 @@
   "author": "bendayconsulting",
   "version": {
     "Major": "1",
-    "Minor": "72",
+    "Minor": "73",
     "Patch": 0
   },
   "instanceNameFormat": "Run SQL using SqlCmd",
