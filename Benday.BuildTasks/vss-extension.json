@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "build-task",
   "name": "Build & Release Tools",
-  "version": "1.72.0",
+  "version": "1.73.0",
   "publisher": "bendayconsulting",
   "public": true,
   "targets": [
