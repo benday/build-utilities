@@ -1,14 +1,6 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
 const path = require("path");
 const tl = require("azure-pipelines-task-lib/task");
 // import mod = require("./taskmod");
@@ -16,7 +8,7 @@ function isEmpty(str) {
     return (!str || 0 === str.length);
 }
 function run() {
-    return __awaiter(this, void 0, void 0, function* () {
+    return (0, tslib_1.__awaiter)(this, void 0, void 0, function* () {
         try {
             let tool;
             const sqlcmdPath = tl.which("sqlcmd");
@@ -29,11 +21,11 @@ function run() {
                 tl.debug("Using sqlcmd located at " + sqlcmdPath);
             }
             const pathToEfDll = path.join(__dirname, "ef.dll");
-            const sqlFilePath = tl.getInput("sqlFilePath");
-            const serverName = tl.getInput("serverName");
-            const sqlServerUserName = tl.getInput("sqlServerUserName");
-            const sqlServerPassword = tl.getInput("sqlServerPassword");
-            const sqlServerDatabase = tl.getInput("sqlServerDatabase");
+            const sqlFilePath = tl.getInput("sqlFilePath", true);
+            const serverName = tl.getInput("serverName", true);
+            const sqlServerUserName = tl.getInput("sqlServerUserName", true);
+            const sqlServerPassword = tl.getInput("sqlServerPassword", true);
+            const sqlServerDatabase = tl.getInput("sqlServerDatabase", true);
             tool = tl.tool(sqlcmdPath)
                 .arg("-S")
                 .arg(serverName)
@@ -55,10 +47,19 @@ function run() {
                 tl.setResult(tl.TaskResult.Failed, "Something went wrong with call to sqlcmd.");
             }
         }
-        catch (err) {
-            tl.error("Something unexpected and bad happened.");
-            tl.setResult(tl.TaskResult.Failed, err.message);
+        catch (error) {
+            if (error instanceof Error) {
+                const err = error;
+                tl.setResult(tl.TaskResult.Failed, err.message);
+            }
+            else {
+                tl.error('Someting went wrong.');
+                tl.error(JSON.stringify(error));
+                tl.error(JSON.stringify(error));
+                tl.setResult(tl.TaskResult.Failed, JSON.stringify(error));
+            }
         }
     });
 }
 run();
+//# sourceMappingURL=index.js.map

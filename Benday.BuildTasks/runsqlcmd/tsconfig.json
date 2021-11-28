@@ -1,8 +1,11 @@
 {
     "compilerOptions": {
         "module": "commonjs",
+        "strict": true,
         "target": "es6",
         "noImplicitAny": false,
-        "sourceMap": false
+        "sourceMap": true,
+        "importHelpers": true,
+        "forceConsistentCasingInFileNames": true
     }
 }
