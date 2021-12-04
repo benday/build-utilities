@@ -2,7 +2,6 @@ import * as os from "os";
 import path = require("path");
 import tl = require("azure-pipelines-task-lib/task");
 import trm = require("azure-pipelines-task-lib/toolrunner");
-import mod = require("./taskmod");
 
 function isEmpty(str: string): boolean {
     return (!str || 0 === str.length);
@@ -36,7 +35,6 @@ async function run(): Promise<void> {
         const dbContextClassName: string = tl.getInput("dbContextClassName");
 
         const efMigrationsDllDepsJson: string = efMigrationsNamespace + ".deps.json";
-        // let efMigrationDllDepsJsonPath = path.join(efMigrationsDllDirectory, efMigrationsDllDepsJson)
         const depsJsonFilePath: string = tl.getInput("depsJsonFile");
         const runtimeConfigFilePath: string = tl.getInput("runtimeConfigFile");
 
