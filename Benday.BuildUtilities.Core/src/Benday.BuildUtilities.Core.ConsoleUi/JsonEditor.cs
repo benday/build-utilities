@@ -103,6 +103,11 @@ namespace Benday.BuildUtilities.Core.ConsoleUi
                 }
                 else
                 {
+                    if (current is not JObject)
+                    {
+                        throw new InvalidOperationException($"There is already a property value with this name. Cannot change a property to an object.");
+                    }
+                    
                     parent = (JObject)current;
                 }
             }

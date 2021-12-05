@@ -71,10 +71,10 @@ namespace Benday.BuildUtilities.Core.Tests
             Args = CreateArgsArray(
                 CommandNameArgument,
                 GetArgEntry(Constants.ArgumentNameConfigFilename, _PathToSampleConfigFile),
-                GetArgEntry(Constants.ArgumentNameLevel1, "Logging"),
-                GetArgEntry(Constants.ArgumentNameLevel2, "LogLevel"),
-                GetArgEntry(Constants.ArgumentNameLevel3, "Default"),
-                GetArgEntry(Constants.ArgumentNameLevel4, "bingbong"),
+                GetArgEntry(Constants.ArgumentNameLevel1, "one"),
+                GetArgEntry(Constants.ArgumentNameLevel2, "two"),
+                GetArgEntry(Constants.ArgumentNameLevel3, "three"),
+                GetArgEntry(Constants.ArgumentNameLevel4, "four"),
                 GetArgEntry(Constants.ArgumentNameValue, expectedValue));
 
             SystemUnderTest.Run();
@@ -82,7 +82,7 @@ namespace Benday.BuildUtilities.Core.Tests
             var editor = new JsonEditor(_PathToSampleConfigFile);
 
             var actual = editor.GetValue(
-                "Logging", "LogLevel", "Default", "bingbong");
+                "one", "two", "three", "four");
 
             Assert.AreEqual<string>(expectedValue, actual, "Result was wrong.");
         }
