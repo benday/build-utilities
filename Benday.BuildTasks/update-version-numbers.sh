@@ -16,8 +16,7 @@ updateVersionForExtension () {
         exit 1
     fi
     
-    directoryName=$1
-    minorVersion=$2
+    minorVersion=$1
     filename="./vss-extension.json"
     dotnet $pathToBendayBuildConfigUtilCoreDll setjsonvalue /filename:$filename /level1:version /value:"$majorVersionNumber.$minorVersion.0"
 }
@@ -46,7 +45,7 @@ updateVersionForExtensionTask () {
 }
 
 updateVersionForExtension $1
-updateVersionForExtensionTask seteappconfigappsetting $1 
+updateVersionForExtensionTask setappconfigappsetting $1 
 updateVersionForExtensionTask setappconfigconnectionstring $1 
 updateVersionForExtensionTask setjsonconfigconnectionstring $1 
 updateVersionForExtensionTask setjsonvalue $1 
