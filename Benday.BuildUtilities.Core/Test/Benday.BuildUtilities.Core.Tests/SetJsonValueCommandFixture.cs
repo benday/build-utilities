@@ -64,6 +64,30 @@ namespace Benday.BuildUtilities.Core.Tests
         }
 
         [TestMethod]
+        public void SetJsonValueUsingFourLevelsOfElement()
+        {
+            string expectedValue = "new-value";
+
+            Args = CreateArgsArray(
+                CommandNameArgument,
+                GetArgEntry(Constants.ArgumentNameConfigFilename, _PathToSampleConfigFile),
+                GetArgEntry(Constants.ArgumentNameLevel1, "Logging"),
+                GetArgEntry(Constants.ArgumentNameLevel2, "LogLevel"),
+                GetArgEntry(Constants.ArgumentNameLevel3, "Default"),
+                GetArgEntry(Constants.ArgumentNameLevel4, "bingbong"),
+                GetArgEntry(Constants.ArgumentNameValue, expectedValue));
+
+            SystemUnderTest.Run();
+
+            var editor = new JsonEditor(_PathToSampleConfigFile);
+
+            var actual = editor.GetValue(
+                "Logging", "LogLevel", "Default", "bingbong");
+
+            Assert.AreEqual<string>(expectedValue, actual, "Result was wrong.");
+        }
+
+        [TestMethod]
         public void SetJsonValueUsingTwoLevelsOfElement()
         {
             string expectedValue = "new-value";

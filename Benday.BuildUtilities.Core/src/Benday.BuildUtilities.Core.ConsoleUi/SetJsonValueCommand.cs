@@ -63,10 +63,22 @@ namespace Benday.BuildUtilities.Core.ConsoleUi
             var level1 = Arguments[Constants.ArgumentNameLevel1];
             string level2 = null;
             string level3 = null;
+            string level4 = null;
             
             var editor = new JsonEditor(configFilename);
 
             if (ArgNameExists(Constants.ArgumentNameLevel2) == true &&
+                ArgNameExists(Constants.ArgumentNameLevel3) == true &&
+                ArgNameExists(Constants.ArgumentNameLevel4) == true)
+            {
+                level2 = Arguments[Constants.ArgumentNameLevel2];
+                level3 = Arguments[Constants.ArgumentNameLevel3];
+                level4 = Arguments[Constants.ArgumentNameLevel4];
+                
+                editor.SetValue(
+                    newValue, level1, level2, level3, level4);
+            }
+            else if (ArgNameExists(Constants.ArgumentNameLevel2) == true &&
                 ArgNameExists(Constants.ArgumentNameLevel3) == true)
             {
                 level2 = Arguments[Constants.ArgumentNameLevel2];

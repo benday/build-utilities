@@ -14,5 +14,12 @@
   "CustomConfig": {
     "Value1": "value1-value",
     "Value2": "value2-value"
+  },
+  "one": {
+    "two": {
+      "three": {
+        "four": "four-value"
+      }
+    }
   }
 }
