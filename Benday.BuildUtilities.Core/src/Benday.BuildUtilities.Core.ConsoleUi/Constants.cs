@@ -24,10 +24,11 @@ namespace Benday.BuildUtilities.Core.ConsoleUi
         public static readonly string ArgumentNameLevel1 = "level1";
         public static readonly string ArgumentNameLevel2 = "level2";
         public static readonly string ArgumentNameLevel3 = "level3";
+        public static readonly string ArgumentNameLevel4 = "level4";
         public static readonly string ArgumentNameAttributeName = "attributename";
         public static readonly string ArgumentNameConnectionString = "connectionstring";
         public static readonly string ArgumentNameDebug = "debug";
         public static readonly string ArgumentNameLastOnly = "last";
-        
+
     }
 }

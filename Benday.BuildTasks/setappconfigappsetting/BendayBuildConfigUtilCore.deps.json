@@ -1,11 +1,11 @@
 {
   "runtimeTarget": {
-    "name": ".NETCoreApp,Version=v3.1",
+    "name": ".NETCoreApp,Version=v6.0",
     "signature": ""
   },
   "compilationOptions": {},
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
+    ".NETCoreApp,Version=v6.0": {
       "BendayBuildConfigUtilCore/1.0.0": {
         "dependencies": {
           "Newtonsoft.Json": "13.0.1",
@@ -42,7 +42,7 @@
           "runtimes/win-arm64/native/sni.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "4.6.25512.1"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -51,7 +51,7 @@
           "runtimes/win-x64/native/sni.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "4.6.25512.1"
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -60,7 +60,7 @@
           "runtimes/win-x86/native/sni.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "4.6.25512.1"
+            "fileVersion": "0.0.0.0"
           }
         }
       },

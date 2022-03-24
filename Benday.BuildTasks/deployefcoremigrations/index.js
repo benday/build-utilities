@@ -36,7 +36,6 @@ function run() {
             const startupDllName = tl.getInput("startupDll");
             const dbContextClassName = tl.getInput("dbContextClassName");
             const efMigrationsDllDepsJson = efMigrationsNamespace + ".deps.json";
-            // let efMigrationDllDepsJsonPath = path.join(efMigrationsDllDirectory, efMigrationsDllDepsJson)
             const depsJsonFilePath = tl.getInput("depsJsonFile");
             const runtimeConfigFilePath = tl.getInput("runtimeConfigFile");
             const pathToNuGetPackages = path.join(os.homedir(), ".nuget/packages");

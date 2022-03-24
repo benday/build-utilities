@@ -1,4 +1,3 @@
-import * as os from "os";
 import path = require("path");
 import tl = require("azure-pipelines-task-lib/task");
 import trm = require("azure-pipelines-task-lib/toolrunner");
@@ -26,13 +25,13 @@ async function run(): Promise<void> {
 
         const pathToEfDll: string = path.join(__dirname, "ef.dll");
 
-        const sqlFilePath: string = tl.getInput("sqlFilePath");
-        const serverName: string = tl.getInput("serverName");
-        const sqlServerUserName: string = tl.getInput("sqlServerUserName");
-        const sqlServerPassword: string = tl.getInput("sqlServerPassword");
-        const sqlServerDatabase: string = tl.getInput("sqlServerDatabase");
+        const sqlFilePath: string = tl.getInput("sqlFilePath", true) as string;
+        const serverName: string = tl.getInput("serverName", true) as string;
+        const sqlServerUserName: string = tl.getInput("sqlServerUserName", true) as string;
+        const sqlServerPassword: string = tl.getInput("sqlServerPassword", true) as string;
+        const sqlServerDatabase: string = tl.getInput("sqlServerDatabase", true) as string;
 
-            tool = tl.tool(sqlcmdPath)
+        tool = tl.tool(sqlcmdPath)
             .arg("-S")
             .arg(serverName)
             .arg("-U")
@@ -43,7 +42,7 @@ async function run(): Promise<void> {
             .arg(sqlServerDatabase)
             .arg("-i")
             .arg(sqlFilePath);
-        
+
         const returnCode: number = await tool.exec();
 
         tl.debug("Completed call to sqlcmd with return code " + returnCode);
@@ -52,12 +51,21 @@ async function run(): Promise<void> {
             // this is fine
         } else {
             tl.error("Something went wrong with call to sqlcmd.");
-            tl.setResult(tl.TaskResult.Failed, 
+            tl.setResult(tl.TaskResult.Failed,
                 "Something went wrong with call to sqlcmd.");
         }
-    } catch (err) {
-        tl.error("Something unexpected and bad happened.");
-        tl.setResult(tl.TaskResult.Failed, err.message);
+    } catch (error) {
+        if (error instanceof Error) {
+            const err: Error = error
+
+            tl.setResult(tl.TaskResult.Failed, err.message);
+        } else {
+            tl.error('Someting went wrong.')
+            tl.error(JSON.stringify(error))
+            tl.error(JSON.stringify(error))
+            tl.setResult(tl.TaskResult.Failed,
+                JSON.stringify(error))
+        }
     }
 }
 

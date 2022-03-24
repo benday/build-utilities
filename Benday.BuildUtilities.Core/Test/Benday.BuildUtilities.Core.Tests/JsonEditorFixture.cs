@@ -86,6 +86,18 @@ namespace Benday.BuildUtilities.Core.Tests
             Assert.AreEqual<string>(expected, actual, "Wrong value.");
         }
 
+        [TestMethod]
+        public void GetValue_FourLevels()
+        {
+            InitializeWithPopulatedJson();
+
+            var expected = "four-value";
+
+            var actual = SystemUnderTest.GetValue(
+                "one", "two", "three", "four");
+
+            Assert.AreEqual<string>(expected, actual, "Wrong value.");
+        }
 
         [TestMethod]
         public void Json_NewValue_SetValue_OneLevel()
@@ -160,7 +172,7 @@ namespace Benday.BuildUtilities.Core.Tests
 
             SystemUnderTest.SetValue(
                     "val2", "ConnectionStrings", "conn2");
-            
+
             var actual1 = SystemUnderTest.GetValue("ConnectionStrings", "conn1");
             var actual2 = SystemUnderTest.GetValue("ConnectionStrings", "conn2");
 
@@ -235,11 +247,45 @@ namespace Benday.BuildUtilities.Core.Tests
             var expected = "new-Debug";
 
             SystemUnderTest.SetValue(
-                expected, 
+                expected,
                 "Logging", "LogLevel", "Default");
 
-            var actual = SystemUnderTest.GetValue(                
+            var actual = SystemUnderTest.GetValue(
                 "Logging", "LogLevel", "Default");
+
+            Assert.AreEqual<string>(expected, actual, "Wrong value.");
+        }
+
+        [TestMethod]
+        public void Json_ExistingValue_SetValue_FourLevels()
+        {
+            InitializeWithPopulatedJson();
+
+            var expected = "new-four-value";
+
+            SystemUnderTest.SetValue(
+                expected,
+                "one", "two", "three", "four");
+
+            var actual = SystemUnderTest.GetValue(
+                "one", "two", "three", "four");
+
+            Assert.AreEqual<string>(expected, actual, "Wrong value.");
+        }
+
+        [TestMethod]
+        public void Json_NewValue_SetValue_FourLevels()
+        {
+            InitializeWithEmptyJson();
+
+            var expected = "new-four-value";
+
+            SystemUnderTest.SetValue(
+                expected,
+                "one-new", "two-new", "three-new", "four-new");
+
+            var actual = SystemUnderTest.GetValue(
+                "one-new", "two-new", "three-new", "four-new");
 
             Assert.AreEqual<string>(expected, actual, "Wrong value.");
         }

@@ -9,11 +9,9 @@
   "author": "bendayconsulting",
   "license": "ISC",
   "dependencies": {
-    "azure-pipelines-task-lib": "^2.9.6",
-    "path": "^0.12.7"
+    "azure-pipelines-task-lib": "^3.1.10"
   },
   "devDependencies": {
-    "@types/node": "^8.10.66",
-    "@types/q": "^1.5.5"
+    "tslib": "^2.3.1"
   }
 }
