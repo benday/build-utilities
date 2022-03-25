@@ -1,49 +1,24 @@
-set "base=%cd%"
+#!/bin/bash
 
-set "taskDirName=runsqlcmd"
-echo starting %taskDirName%
-cd %taskDirName%
-call npm update
-call npm audit fix
-echo finished %taskDirName%
-cd %base%
+base="$PWD"
 
-set "taskDirName=setappconfigconnectionstring"
-echo starting %taskDirName%
-cd %taskDirName%
-call npm update
-call npm audit fix
-echo finished %taskDirName%
-cd %base%
+runCommands() {
+    echo -----
+    taskDirName="$1"
+    pathToDir="$base/$taskDirName"
+    echo starting work on $taskDirName
+    echo changing dir to $pathToDir
+    cd $pathToDir
+    npm update
+    npm audit fix
+    echo finished $taskDirName
+    echo -----
+    cd $base
+}
 
-set "taskDirName=setappconfigappsetting"
-echo starting %taskDirName%
-cd %taskDirName%
-call npm update
-call npm audit fix
-echo finished %taskDirName%
-cd %base%
-
-set "taskDirName=setjsonconfigconnectionstring"
-echo starting %taskDirName%
-cd %taskDirName%
-call npm update
-call npm audit fix
-echo finished %taskDirName%
-cd %base%
-
-set "taskDirName=deployefcoremigrations"
-echo starting %taskDirName%
-cd %taskDirName%
-call npm update
-call npm audit fix
-echo finished %taskDirName%
-cd %base%
-
-set "taskDirName=setjsonvalue"
-echo starting %taskDirName%
-cd %taskDirName%
-call npm update
-call npm audit fix
-echo finished %taskDirName%
-cd %base%
+runCommands "runsqlcmd"
+runCommands "setappconfigconnectionstring"
+runCommands "setappconfigappsetting"
+runCommands "setjsonconfigconnectionstring"
+runCommands "deployefcoremigrations"
+runCommands "setjsonvalue"
