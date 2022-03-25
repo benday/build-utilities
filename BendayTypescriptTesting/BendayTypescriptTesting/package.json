@@ -1,0 +1,27 @@
+{
+  "name": "benday-typescript-testing",
+  "version": "0.0.0",
+  "description": "BendayTypescriptTesting",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
+  },
+  "devDependencies": {
+    "@types/node": "^8.10.58",
+    "jasmine": "^3.5.0",
+    "jasmine-core": "^4.0.1",
+    "karma": "^6.3.17",
+    "karma-chrome-launcher": "^3.1.1",
+    "karma-jasmine": "^2.0.1",
+    "karma-typescript": "^5.5.3",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "@types/jest": "^24.0.21"
+    
+  }
+}

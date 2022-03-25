@@ -8,7 +8,7 @@
   "author": "bendayconsulting",
   "version": {
     "Major": "2",
-    "Minor": "8",
+    "Minor": "9",
     "Patch": 0
   },
   "instanceNameFormat": "Set string value in json file",
@@ -38,7 +38,8 @@
       "options": {
         "1": "1",
         "2": "2",
-        "3": "3"
+        "3": "3",
+        "4": "4"
       },
       "properties": {
         "EditableOptions": "False"
@@ -58,7 +59,7 @@
       "label": "Second level name",
       "defaultValue": "",
       "required": true,
-      "visibleRule": "numberOfLevels = 2 || numberOfLevels = 3",
+      "visibleRule": "numberOfLevels = 2 || numberOfLevels = 3 || numberOfLevels = 4",
       "helpMarkDown": "The name of the second level property in the json hierarchy."
     },
     {
@@ -67,8 +68,17 @@
       "label": "Third level name",
       "defaultValue": "",
       "required": true,
-      "visibleRule": "numberOfLevels = 3",
+      "visibleRule": "numberOfLevels = 3 || numberOfLevels = 4",
       "helpMarkDown": "The name of the third level property in the json hierarchy."
+    },
+    {
+      "name": "keyname4",
+      "type": "string",
+      "label": "Four level name",
+      "defaultValue": "",
+      "required": true,
+      "visibleRule": "numberOfLevels = 4",
+      "helpMarkDown": "The name of the 4th level property in the json hierarchy."
     },
     {
       "name": "valueToSet",

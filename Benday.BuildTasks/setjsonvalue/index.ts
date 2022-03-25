@@ -35,6 +35,13 @@ async function run(): Promise<void> {
 
             editor.setValue(valueToSet, key1, key2, key3);
             editor.save(filename);
+        } else if (numberOfLevels === "4") {
+            const key2 = tl.getInput("keyname2", true);
+            const key3 = tl.getInput("keyname3", true);
+            const key4 = tl.getInput("keyname4", true);
+
+            editor.setValue(valueToSet, key1, key2, key3, key4);
+            editor.save(filename);
         }
     } catch (err) {
         tl.error("Something went wrong.");

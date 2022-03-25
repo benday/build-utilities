@@ -30,7 +30,7 @@ export class JsonEditor {
         this.setValue(value, "ConnectionStrings", key);
     }
 
-    public getValue(key1: string, key2: string = null, key3: string = null): string {
+    public getValue(key1: string, key2: string = null, key3: string = null, key4: string = null): string {
         if (this.ContentsAsJson === null) {
             return null;
         } else if (key1 === null) {
@@ -38,7 +38,15 @@ export class JsonEditor {
         } else {
             let returnValue: string;
 
-            if (key3 !== null &&
+            if (key4 !== null &&
+                key3 !== null &&
+                key2 !== null &&
+                key1 !== null &&
+                this.ContentsAsJson[key1] &&
+                this.ContentsAsJson[key1][key2] &&
+                this.ContentsAsJson[key1][key3]) {
+                returnValue = this.ContentsAsJson[key1][key2][key3][key4];
+            } else if (key3 !== null &&
                 key2 !== null &&
                 key1 !== null &&
                 this.ContentsAsJson[key1] &&
@@ -58,13 +66,17 @@ export class JsonEditor {
         }
     }
 
-    public setValue(theValue: string, key1: string, key2: string = null, key3: string = null): void {
+    public setValue(theValue: string, key1: string, key2: string = null, key3: string = null, key4: string = null): void {
         if (this.ContentsAsJson === null) {
             return;
         }
 
         if (key1 === null) {
             return;
+        } else if (key4 !== null && 
+            key3 !== null && key2 !== null && key1 !== null) {
+            this.ensureJsonPropertyExists(key1, key2, key3);
+            this.ContentsAsJson[key1][key2][key3][key4] = theValue;
         } else if (key3 !== null && key2 !== null && key1 !== null) {
             this.ensureJsonPropertyExists(key1, key2);
             this.ContentsAsJson[key1][key2][key3] = theValue;
@@ -76,7 +88,8 @@ export class JsonEditor {
         }
     }
 
-    private ensureJsonPropertyExists(key1: string, key2: string = null): void {
+    private ensureJsonPropertyExists(key1: string, 
+        key2: string = null, key3: string = null): void {
         if (key1 === null) {
             return;
         } else if (!this.ContentsAsJson[key1]) {
@@ -87,6 +100,12 @@ export class JsonEditor {
             return;
         } else if (!this.ContentsAsJson[key1][key2]) {
             this.ContentsAsJson[key1][key2] = {};
+        }
+
+        if (key3 === null) {
+            return;
+        } else if (!this.ContentsAsJson[key1][key2][key3]) {
+            this.ContentsAsJson[key1][key2][key3] = {};
         }
     }
 }
