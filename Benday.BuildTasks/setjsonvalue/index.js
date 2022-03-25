@@ -19,8 +19,11 @@ function run() {
         try {
             const numberOfLevels = tl.getInput("numberOfLevels", true);
             const filename = tl.getInput("filename", true);
-            const valueToSet = tl.getInput("valueToSet", true);
+            let valueToSet = tl.getInput("valueToSet", false);
             const key1 = tl.getInput("keyname1", true);
+            if (valueToSet === undefined || valueToSet === null) {
+                valueToSet = '';
+            }
             const editor = new JsonEditor_1.JsonEditor();
             editor.open(filename);
             if (numberOfLevels === "1") {

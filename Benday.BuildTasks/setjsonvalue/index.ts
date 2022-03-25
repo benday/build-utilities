@@ -10,8 +10,12 @@ async function run(): Promise<void> {
     try {
         const numberOfLevels: string = tl.getInput("numberOfLevels", true);
         const filename = tl.getInput("filename", true);
-        const valueToSet = tl.getInput("valueToSet", true);
+        let valueToSet = tl.getInput("valueToSet", false);
         const key1 = tl.getInput("keyname1", true);
+
+        if (valueToSet === undefined || valueToSet === null) {
+            valueToSet = '';
+        }
 
         const editor: JsonEditor = new JsonEditor();
 

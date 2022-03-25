@@ -8,7 +8,7 @@
   "author": "bendayconsulting",
   "version": {
     "Major": "2",
-    "Minor": "4",
+    "Minor": "8",
     "Patch": 0
   },
   "instanceNameFormat": "Set string value in json file",
@@ -75,7 +75,7 @@
       "type": "string",
       "label": "Value",
       "defaultValue": "",
-      "required": true,
+      "required": false,
       "helpMarkDown": "Value to be set into the json file."
     }
   ],
