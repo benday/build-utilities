@@ -21,7 +21,7 @@ class JsonEditor {
     setConnectionString(key, value) {
         this.setValue(value, "ConnectionStrings", key);
     }
-    getValue(key1, key2 = null, key3 = null) {
+    getValue(key1, key2 = null, key3 = null, key4 = null) {
         if (this.ContentsAsJson === null) {
             return null;
         }
@@ -30,7 +30,16 @@ class JsonEditor {
         }
         else {
             let returnValue;
-            if (key3 !== null &&
+            if (key4 !== null &&
+                key3 !== null &&
+                key2 !== null &&
+                key1 !== null &&
+                this.ContentsAsJson[key1] &&
+                this.ContentsAsJson[key1][key2] &&
+                this.ContentsAsJson[key1][key3]) {
+                returnValue = this.ContentsAsJson[key1][key2][key3][key4];
+            }
+            else if (key3 !== null &&
                 key2 !== null &&
                 key1 !== null &&
                 this.ContentsAsJson[key1] &&
@@ -51,12 +60,17 @@ class JsonEditor {
             }
         }
     }
-    setValue(theValue, key1, key2 = null, key3 = null) {
+    setValue(theValue, key1, key2 = null, key3 = null, key4 = null) {
         if (this.ContentsAsJson === null) {
             return;
         }
         if (key1 === null) {
             return;
+        }
+        else if (key4 !== null &&
+            key3 !== null && key2 !== null && key1 !== null) {
+            this.ensureJsonPropertyExists(key1, key2, key3);
+            this.ContentsAsJson[key1][key2][key3][key4] = theValue;
         }
         else if (key3 !== null && key2 !== null && key1 !== null) {
             this.ensureJsonPropertyExists(key1, key2);
@@ -70,7 +84,7 @@ class JsonEditor {
             this.ContentsAsJson[key1] = theValue;
         }
     }
-    ensureJsonPropertyExists(key1, key2 = null) {
+    ensureJsonPropertyExists(key1, key2 = null, key3 = null) {
         if (key1 === null) {
             return;
         }
@@ -82,6 +96,12 @@ class JsonEditor {
         }
         else if (!this.ContentsAsJson[key1][key2]) {
             this.ContentsAsJson[key1][key2] = {};
+        }
+        if (key3 === null) {
+            return;
+        }
+        else if (!this.ContentsAsJson[key1][key2][key3]) {
+            this.ContentsAsJson[key1][key2][key3] = {};
         }
     }
 }
