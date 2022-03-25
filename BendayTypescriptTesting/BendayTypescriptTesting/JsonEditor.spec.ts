@@ -1,15 +1,16 @@
-import { JsonEditor } from "./JsonEditor";
 import * as fs from 'fs';
+import { JsonEditor } from './JsonEditor';
 
 describe('JsonEditor', () => {
-    var _SystemUnderTest;
+    var _SystemUnderTest: JsonEditor;
     const _PathToAppSettingsFileWithValues: string = './sample-files/appsettings.json';
     const _PathToAppSettingsFileWithoutValues: string = './sample-files/appsettings-no-connection-strings.json';
     const _PathToAppSettingsTempFile: string = './sample-files/appsettings-temp.json';
 
     beforeEach(function () {
-        _SystemUnderTest = null;
+        console.log('beforeEach starting...');
         _SystemUnderTest = new JsonEditor();
+        console.log('beforeEach completed...');
     });
 
     it('Should initialize', () => {
@@ -231,7 +232,7 @@ describe('JsonEditor', () => {
         var key1 = 'Level1Value';
         var expected = 'updated value';
         
-        var actual = _SystemUnderTest.setValue(expected, key1);
+        _SystemUnderTest.setValue(expected, key1);
 
         var actual = _SystemUnderTest.getValue(key1);
 
@@ -245,7 +246,7 @@ describe('JsonEditor', () => {
         var key2 = 'Level2Value';
         var expected = 'updated value';
 
-        var actual = _SystemUnderTest.setValue(expected, key1, key2);
+        _SystemUnderTest.setValue(expected, key1, key2);
 
         var actual = _SystemUnderTest.getValue(key1, key2);
 
@@ -260,7 +261,7 @@ describe('JsonEditor', () => {
         var key3 = 'Level3Value';
         var expected = 'updated value';
 
-        var actual = _SystemUnderTest.setValue(expected, key1, key2, key3);
+        _SystemUnderTest.setValue(expected, key1, key2, key3);
 
         var actual = _SystemUnderTest.getValue(key1, key2, key3);
 
@@ -273,7 +274,7 @@ describe('JsonEditor', () => {
         var key1 = 'newLevel1Value';
         var expected = 'updated value';
 
-        var actual = _SystemUnderTest.setValue(expected, key1);
+        _SystemUnderTest.setValue(expected, key1);
 
         var actual = _SystemUnderTest.getValue(key1);
 
@@ -287,7 +288,7 @@ describe('JsonEditor', () => {
         var key2 = 'newLevel2Value';
         var expected = 'updated value';
 
-        var actual = _SystemUnderTest.setValue(expected, key1, key2);
+        _SystemUnderTest.setValue(expected, key1, key2);
 
         var actual = _SystemUnderTest.getValue(key1, key2);
 
@@ -302,7 +303,7 @@ describe('JsonEditor', () => {
         var key3 = 'newLevel3Value';
         var expected = 'updated value';
 
-        var actual = _SystemUnderTest.setValue(expected, key1, key2, key3);
+        _SystemUnderTest.setValue(expected, key1, key2, key3);
 
         var actual = _SystemUnderTest.getValue(key1, key2, key3);
 
