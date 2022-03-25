@@ -2,57 +2,24 @@
 
 base="$PWD"
 
-taskDirName="runsqlcmd"
-echo starting cd $taskDirName
-cd $taskDirName
-npm install --production
-npm prune --production
-npm audit fix
-echo finished cd $taskDirName
-cd $base
+runCommands() {
+    echo -----
+    taskDirName="$1"
+    pathToDir="$base/$taskDirName"
+    echo starting work on $taskDirName
+    echo changing dir to $pathToDir
+    cd $pathToDir
+    npm install --production
+    npm prune --production
+    npm audit fix
+    echo finished $taskDirName
+    echo -----
+    cd $base
+}
 
-taskDirName="setappconfigconnectionstring"
-echo starting cd $taskDirName
-cd $taskDirName
-npm install --production
-npm prune --production
-npm audit fix
-echo finished cd $taskDirName
-cd $base
-
-taskDirName="setappconfigappsetting"
-echo starting cd $taskDirName
-cd $taskDirName
-npm install --production
-npm prune --production
-npm audit fix
-echo finished cd $taskDirName
-cd $base
-
-taskDirName="setjsonconfigconnectionstring"
-echo starting cd $taskDirName
-cd $taskDirName
-npm install --production
-npm prune --production
-npm audit fix
-echo finished cd $taskDirName
-cd $base
-
-taskDirName="deployefcoremigrations"
-echo starting cd $taskDirName
-cd $taskDirName
-npm install --production
-npm prune --production
-npm audit fix
-echo finished cd $taskDirName
-cd $base
-
-taskDirName="setjsonvalue"
-echo starting cd $taskDirName
-cd $taskDirName
-npm install --production
-npm prune --production
-npm audit fix
-echo finished cd $taskDirName
-cd $base
-
+runCommands "runsqlcmd"
+runCommands "setappconfigconnectionstring"
+runCommands "setappconfigappsetting"
+runCommands "setjsonconfigconnectionstring"
+runCommands "deployefcoremigrations"
+runCommands "setjsonvalue"
