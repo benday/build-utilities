@@ -6,12 +6,15 @@ runCommands() {
     echo -----
     taskDirName="$1"
     pathToDir="$base/$taskDirName"
-    echo starting work on $taskDirName
-    echo changing dir to $pathToDir
+
+    echo "Working on $taskDirName"
+
+    echo "changing dir to $pathToDir"
     cd $pathToDir
     npm update
+    # npm audit fix --force
     npm audit fix
-    echo finished $taskDirName
+    echo "finished $taskDirName"
     echo -----
     cd $base
 }
