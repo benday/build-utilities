@@ -278,7 +278,7 @@ describe('JsonEditor', () => {
 
         console.log(actual);
 
-        expect(actual).toBe(expected);
+        expect(actual).toStrictEqual(expected);
     });
 
     it('Get existing array value from sample json: second level', () => {
@@ -292,7 +292,7 @@ describe('JsonEditor', () => {
 
         console.log(actual);
 
-        expect(actual).toBe(expected);
+        expect(actual).toStrictEqual(expected);
     });
 
     it('Set new array value in json: first level', () => {
@@ -305,7 +305,23 @@ describe('JsonEditor', () => {
 
         var actual = _SystemUnderTest.getValueAsArray(key1);
 
-        expect(actual).toBe(expected);
+        expect(actual).toStrictEqual(expected);
+    });
+
+    it('Set value to existing array in sample json: second level', () => {
+        _SystemUnderTest.open(_PathToAppSettingsFileWithValues);
+
+        var key1 = 'level1Object';
+        var key2 = 'level2Array';
+        var expected: string[] = ['value 1a 123', 'value 2a 123', 'value 3a 123'];
+
+        _SystemUnderTest.setValueAsArray(expected, key1, key2);
+
+        var actual = _SystemUnderTest.getValueAsArray(key1, key2);
+
+        console.log(actual);
+
+        expect(actual).toStrictEqual(expected);
     });
 
     it('Set new value in json: first level', () => {

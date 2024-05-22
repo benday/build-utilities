@@ -115,7 +115,39 @@ export class JsonEditor {
         }
     }
 
-    public setValue(theValue: string, key1: string, key2: string = null, key3: string = null, key4: string = null): void {
+    public setValue(theValue: string, 
+        key1: string, 
+        key2: string | null = null, 
+        key3: string | null = null, 
+        key4: string | null = null): void {
+            
+        if (this.ContentsAsJson === null) {
+            return;
+        }
+
+        if (key1 === null) {
+            return;
+        } else if (key4 !== null &&
+            key3 !== null && key2 !== null && key1 !== null) {
+            this.ensureJsonPropertyExists(key1, key2, key3);
+            this.ContentsAsJson[key1][key2][key3][key4] = theValue;
+        } else if (key3 !== null && key2 !== null && key1 !== null) {
+            this.ensureJsonPropertyExists(key1, key2);
+            this.ContentsAsJson[key1][key2][key3] = theValue;
+        } else if (key2 !== null && key1 !== null) {
+            this.ensureJsonPropertyExists(key1);
+            this.ContentsAsJson[key1][key2] = theValue;
+        } else {
+            this.ContentsAsJson[key1] = theValue;
+        }
+    }
+
+    public setValueAsArray(
+            theValue: string[], 
+            key1: string, 
+            key2: string | null = null, 
+            key3: string | null = null, 
+            key4: string | null = null): void {
         if (this.ContentsAsJson === null) {
             return;
         }
@@ -138,7 +170,7 @@ export class JsonEditor {
     }
 
     private ensureJsonPropertyExists(key1: string,
-        key2: string = null, key3: string = null): void {
+        key2: string | null = null, key3: string | null = null): void {
         if (key1 === null) {
             return;
         } else if (!this.ContentsAsJson[key1]) {
