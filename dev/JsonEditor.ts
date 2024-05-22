@@ -30,7 +30,7 @@ export class JsonEditor {
         this.setValue(value, "ConnectionStrings", key);
     }
 
-    public getValue(key1: string, key2: string | null = null, key3: string | null = null): string | null {
+    public getValue(key1: string, key2: string | null = null, key3: string | null = null, key4: string = null): string | null {
         if (this.ContentsAsJson === null) {
             return null;
         }
@@ -38,65 +38,76 @@ export class JsonEditor {
             return null;
         }
         else {
-            var returnValue: string;
+            let returnValue: string;
 
-            if (key3 !== null &&
+            if (key4 !== null &&
+                key3 !== null &&
+                key2 !== null &&
+                key1 !== null &&
+                this.ContentsAsJson[key1] &&
+                this.ContentsAsJson[key1][key2] &&
+                this.ContentsAsJson[key1][key3]) {
+                returnValue = this.ContentsAsJson[key1][key2][key3][key4];
+            } else if (key3 !== null &&
                 key2 !== null &&
                 key1 !== null &&
                 this.ContentsAsJson[key1] &&
                 this.ContentsAsJson[key1][key2]) {
                 returnValue = this.ContentsAsJson[key1][key2][key3];
-            }
-            else if (key2 !== null && key1 !== null && this.ContentsAsJson[key1]) {
+            } else if (key2 !== null && key1 !== null && this.ContentsAsJson[key1]) {
                 returnValue = this.ContentsAsJson[key1][key2];
-            }
-            else {
+            } else {
                 returnValue = this.ContentsAsJson[key1];
             }
 
             if (!returnValue) {
                 return null;
-            }
-            else {
+            } else {
                 return returnValue;
             }
         }
     }
 
-    public setValue(theValue: string, key1: string, key2: string | null = null, key3: string | null = null): void {
+    public setValue(theValue: string, key1: string, key2: string = null, key3: string = null, key4: string = null): void {
         if (this.ContentsAsJson === null) {
             return;
         }
 
         if (key1 === null) {
             return;
-        }
-        else if (key3 !== null && key2 !== null && key1 !== null) {
+        } else if (key4 !== null && 
+            key3 !== null && key2 !== null && key1 !== null) {
+            this.ensureJsonPropertyExists(key1, key2, key3);
+            this.ContentsAsJson[key1][key2][key3][key4] = theValue;
+        } else if (key3 !== null && key2 !== null && key1 !== null) {
             this.ensureJsonPropertyExists(key1, key2);
             this.ContentsAsJson[key1][key2][key3] = theValue;
-        }
-        else if (key2 !== null && key1 !== null) {
+        } else if (key2 !== null && key1 !== null) {
             this.ensureJsonPropertyExists(key1);
             this.ContentsAsJson[key1][key2] = theValue;
-        }
-        else {
+        } else {
             this.ContentsAsJson[key1] = theValue;
         }
     }
 
-    private ensureJsonPropertyExists(key1: string, key2: string | null = null): void {
+    private ensureJsonPropertyExists(key1: string, 
+        key2: string = null, key3: string = null): void {
         if (key1 === null) {
             return;
-        }
-        else if (!this.ContentsAsJson[key1]) {
+        } else if (!this.ContentsAsJson[key1]) {
             this.ContentsAsJson[key1] = {};
         }
 
         if (key2 === null) {
             return;
-        }
-        else if (!this.ContentsAsJson[key1][key2]) {
+        } else if (!this.ContentsAsJson[key1][key2]) {
             this.ContentsAsJson[key1][key2] = {};
+        }
+
+        if (key3 === null) {
+            return;
+        } else if (!this.ContentsAsJson[key1][key2][key3]) {
+            this.ContentsAsJson[key1][key2][key3] = {};
         }
     }
 }
