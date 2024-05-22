@@ -8,7 +8,7 @@ function isEmpty(str) {
     return (!str || 0 === str.length);
 }
 function run() {
-    return (0, tslib_1.__awaiter)(this, void 0, void 0, function* () {
+    return tslib_1.__awaiter(this, void 0, void 0, function* () {
         try {
             let tool;
             const sqlcmdPath = tl.which("sqlcmd");

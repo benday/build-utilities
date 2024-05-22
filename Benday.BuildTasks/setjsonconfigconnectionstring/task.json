@@ -7,11 +7,11 @@
   "category": "Utility",
   "author": "bendayconsulting",
   "version": {
-    "Major": "2",
-    "Minor": "12",
+    "Major": "3",
+    "Minor": "0",
     "Patch": 0
   },
-  "instanceNameFormat": "Update connection string '$(keyname)'",
+  "instanceNameFormat": "Update connection string \u0027$(keyname)\u0027",
   "groups": [
     {
       "name": "advanced",

@@ -6,7 +6,7 @@ if [ $# -eq 0 ]
     exit 1
 fi
 
-majorVersionNumber=2
+majorVersionNumber=3
 pathToBendayBuildConfigUtilCoreDll="../Benday.BuildUtilities.Core/published/BendayBuildConfigUtilCore.dll"    
 
 updateVersionForExtension () {
@@ -18,7 +18,7 @@ updateVersionForExtension () {
     
     minorVersion=$1
     filename="./vss-extension.json"
-    dotnet $pathToBendayBuildConfigUtilCoreDll setjsonvalue /filename:$filename /level1:version /value:"$majorVersionNumber.$minorVersion.0"
+    slnutil setjsonvalue /filename:$filename /level1:version /value:"$majorVersionNumber.$minorVersion.0"
 }
 
 updateVersionForExtensionTask () {
@@ -40,8 +40,8 @@ updateVersionForExtensionTask () {
     
     echo "updating $directoryName to $majorVersionNumber.$minorVersion"
 
-    dotnet $pathToBendayBuildConfigUtilCoreDll setjsonvalue /filename:$filename /level1:version /level2:Major /value:$majorVersionNumber
-    dotnet $pathToBendayBuildConfigUtilCoreDll setjsonvalue /filename:$filename /level1:version /level2:Minor /value:$minorVersion
+    slnutil setjsonvalue /filename:$filename /level1:version /level2:Major /value:$majorVersionNumber
+    slnutil setjsonvalue /filename:$filename /level1:version /level2:Minor /value:$minorVersion
 }
 
 updateVersionForExtension $1

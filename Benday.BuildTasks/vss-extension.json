@@ -1,8 +1,8 @@
 {
   "manifestVersion": 1,
   "id": "build-task",
-  "name": "Build & Release Tools",
-  "version": "2.12.0",
+  "name": "Build \u0026 Release Tools",
+  "version": "3.0.0",
   "publisher": "bendayconsulting",
   "public": true,
   "targets": [
@@ -21,7 +21,7 @@
       "uri": "https://www.benday.com/privacy-policy"
     }
   },
-  "description": "Utilities for your Azure DevOps & TFS pipelines. Deploy EF Core database migrations, run sql scripts, edit connection strings and values in app.config, web.config, and appsettings.json.",
+  "description": "Utilities for your Azure DevOps \u0026 TFS pipelines. Deploy EF Core database migrations, run sql scripts, edit connection strings and values in app.config, web.config, and appsettings.json.",
   "categories": [
     "Build and release"
   ],
