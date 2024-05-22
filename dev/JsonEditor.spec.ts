@@ -268,6 +268,46 @@ describe('JsonEditor', () => {
         expect(actual).toBe(expected);
     });
 
+    it('Get existing array value from sample json: first level', () => {
+        _SystemUnderTest.open(_PathToAppSettingsFileWithValues);
+
+        var key1 = 'level1Array';
+        var expected: string[] = ['value 1', 'value 2', 'value 3'];
+
+        var actual = _SystemUnderTest.getValueAsArray(key1);
+
+        console.log(actual);
+
+        expect(actual).toBe(expected);
+    });
+
+    it('Get existing array value from sample json: second level', () => {
+        _SystemUnderTest.open(_PathToAppSettingsFileWithValues);
+
+        var key1 = 'level1Object';
+        var key2 = 'level2Array';
+        var expected: string[] = ['value 1a', 'value 2a', 'value 3a'];
+
+        var actual = _SystemUnderTest.getValueAsArray(key1, key2);
+
+        console.log(actual);
+
+        expect(actual).toBe(expected);
+    });
+
+    it('Set new array value in json: first level', () => {
+        _SystemUnderTest.open(_PathToAppSettingsFileWithoutValues);
+
+        var key1 = 'newLevel1Value';
+        var expected: string[] = ['updated value 1', 'updated value 2', 'updated value 3'];
+
+        _SystemUnderTest.setValueAsArray(expected, key1);
+
+        var actual = _SystemUnderTest.getValueAsArray(key1);
+
+        expect(actual).toBe(expected);
+    });
+
     it('Set new value in json: first level', () => {
         _SystemUnderTest.open(_PathToAppSettingsFileWithoutValues);
 
