@@ -1,12 +1,21 @@
-# Build & Release Tools #
+# Build & Release Tools
+
+Written by Benjamin Day  
+Pluralsight Author | Microsoft MVP | Scrum.org Professional Scrum Trainer  
+https://www.benday.com  
+info@benday.com 
+
+*Got ideas for Azure DevOps utilities you'd like to see? Found a bug? Let us know by submitting an issue https://github.com/benday/build-utilities/issues*. *Want to contribute? Submit a pull request.*
 
 When you're doing builds and releases some things are kind of painful...or at least annoying.  This extension has some tasks that you can use to help make your life a little easier.
 
 Once you install this extension, you'll see the following tasks when you open the Build/Release Task Catalog and go to the Utility section.  
 
-NOTE: this task requires .NET Core 3.1 or higher to be installed on your build agent.
+NOTE: the app.config tasks require .NET Core 3.1 or higher to be installed on your build agent.
 
-Here are the tasks:
+You might also be interested in our free Azure DevOps Utilities (azdoutil). Azdoutil is a collection of helpful command line tools for performing common administrative activities with Azure DevOps. https://github.com/benday-inc/azdoutil 
+
+## Tasks in Build & Release Tools:
 
 1. **Deploy Entity Framework Core Migrations from a DLL**
 
@@ -18,10 +27,11 @@ Here are the tasks:
 
    This task helps you edit connection string in .NET Core applications and ASP.NET Core web apps.  Choose the path to your appsettings.json file, provide the name of the connection string, and provide the new connection string value.  This task will edit the file to either create or update that named connection string in the json-based config.
 
-3. **Set Property Value in JSON File**
+3. **Set Property Value or Array Value in JSON File**
 
-   This task helps you to set property values in a JSON file.  This is useful for when you need to set configuration values in 
-   appsettings.json.  Values can be nested in the JSON hierarchy up to 3 levels deep.  
+   This task helps you to set property values in a JSON file.  This is useful for when you need to set configuration values in appsettings.json.  Values can be nested in the JSON hierarchy up to 4 levels deep.  This has the option to set the value as a property or as an array.
+
+   If you want to set it as an array, you'll set the setValueAsArray property to true and then you can set up to 10 values into the array.
 
 4. **Run SQL Script using SqlCmd**
 
