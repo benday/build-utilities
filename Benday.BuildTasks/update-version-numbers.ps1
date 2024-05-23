@@ -3,8 +3,10 @@ param (
     [string]$minorVersion
 )
 
-$majorVersionNumber = 2
-$pathToBendayBuildConfigUtilCoreDll = "../Benday.BuildUtilities.Core/published/BendayBuildConfigUtilCore.dll"
+#
+# MAJOR VERSION NUMBER
+#
+$majorVersionNumber = 3
 
 function Update-VersionForExtension {
     param (
@@ -13,7 +15,7 @@ function Update-VersionForExtension {
     )
 
     $filename = "./vss-extension.json"
-    & dotnet $pathToBendayBuildConfigUtilCoreDll setjsonvalue /filename:$filename /level1:version /value:"$majorVersionNumber.$minorVersion.0"
+    & slnutil setjsonvalue /filename:$filename /level1:version /value:"$majorVersionNumber.$minorVersion.0"
 }
 
 function Update-VersionForExtensionTask {
@@ -28,8 +30,8 @@ function Update-VersionForExtensionTask {
 
     Write-Host "updating $directoryName to $majorVersionNumber.$minorVersion"
 
-    & dotnet $pathToBendayBuildConfigUtilCoreDll setjsonvalue /filename:$filename /level1:version /level2:Major /value:$majorVersionNumber
-    & dotnet $pathToBendayBuildConfigUtilCoreDll setjsonvalue /filename:$filename /level1:version /level2:Minor /value:$minorVersion
+    & slnutil setjsonvalue /filename:$filename /level1:version /level2:Major /value:$majorVersionNumber
+    & slnutil setjsonvalue /filename:$filename /level1:version /level2:Minor /value:$minorVersion
 }
 
 Update-VersionForExtension -minorVersion $minorVersion

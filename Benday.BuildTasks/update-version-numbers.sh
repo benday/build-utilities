@@ -6,6 +6,9 @@ if [ $# -eq 0 ]
     exit 1
 fi
 
+#
+# MAJOR VERSION NUMBER
+#
 majorVersionNumber=3
 pathToBendayBuildConfigUtilCoreDll="../Benday.BuildUtilities.Core/published/BendayBuildConfigUtilCore.dll"    
 

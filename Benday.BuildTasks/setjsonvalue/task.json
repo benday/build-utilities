@@ -87,6 +87,86 @@
       "defaultValue": "",
       "required": false,
       "helpMarkDown": "Value to be set into the json file."
+    },
+    {
+      "name": "setValueAsArray",
+      "type": "boolean",
+      "label": "Set value as array",
+      "defaultValue": "false",
+      "required": false,
+      "helpMarkDown": "Set the value into the json as an array."
+    },
+    {
+      "name": "valueToSet2",
+      "type": "string",
+      "label": "Array value to set #2",
+      "defaultValue": "",
+      "required": false,
+      "visibleRule": "setValueAsArray = true",
+      "helpMarkDown": "The 2nd array value to set into the json file."
+    },
+    {
+      "name": "valueToSet3",
+      "type": "string",
+      "label": "Array value to set #3",
+      "defaultValue": "",
+      "required": false,
+      "visibleRule": "setValueAsArray = true",
+      "helpMarkDown": "The 3rd array value to set into the json file."
+    },
+    {
+      "name": "valueToSet4",
+      "type": "string",
+      "label": "Array value to set #4",
+      "defaultValue": "",
+      "required": false,
+      "visibleRule": "setValueAsArray = true",
+      "helpMarkDown": "The 4th array value to set into the json file."
+    },
+    {
+      "name": "valueToSet5",
+      "type": "string",
+      "label": "Array value to set #5",
+      "defaultValue": "",
+      "required": false,
+      "visibleRule": "setValueAsArray = true",
+      "helpMarkDown": "The 5th array value to set into the json file."
+    },
+    {
+      "name": "valueToSet6",
+      "type": "string",
+      "label": "Array value to set #6",
+      "defaultValue": "",
+      "required": false,
+      "visibleRule": "setValueAsArray = true",
+      "helpMarkDown": "The 6th array value to set into the json file."
+    },
+    {
+      "name": "valueToSet7",
+      "type": "string",
+      "label": "Array value to set #7",
+      "defaultValue": "",
+      "required": false,
+      "visibleRule": "setValueAsArray = true",
+      "helpMarkDown": "The 7th array value to set into the json file."
+    },
+    {
+      "name": "valueToSet8",
+      "type": "string",
+      "label": "Array value to set #8",
+      "defaultValue": "",
+      "required": false,
+      "visibleRule": "setValueAsArray = true",
+      "helpMarkDown": "The 8th array value to set into the json file."
+    },
+    {
+      "name": "valueToSet9",
+      "type": "string",
+      "label": "Array value to set #9",
+      "defaultValue": "",
+      "required": false,
+      "visibleRule": "setValueAsArray = true",
+      "helpMarkDown": "The 9th array value to set into the json file."
     }
   ],
   "execution": {
