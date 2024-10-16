@@ -7,8 +7,8 @@
   "category": "Utility",
   "author": "bendayconsulting",
   "version": {
-    "Major": "2",
-    "Minor": "12",
+    "Major": "3",
+    "Minor": "1",
     "Patch": 0
   },
   "instanceNameFormat": "Deploy EF Core migrations",
@@ -42,7 +42,7 @@
       "label": "Startup DLL",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "Full path to the DLL to start deploying migrations from. If you're publishing migrations from a web project, choose the web project DLL.  Otherwise, choose the migration DLL."
+      "helpMarkDown": "Full path to the DLL to start deploying migrations from. If you\u0027re publishing migrations from a web project, choose the web project DLL.  Otherwise, choose the migration DLL."
     },
     {
       "name": "depsJsonFile",

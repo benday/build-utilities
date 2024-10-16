@@ -35,5 +35,9 @@ function Update-VersionForExtensionTask {
 }
 
 Update-VersionForExtension -minorVersion $minorVersion
+Update-VersionForExtensionTask -directoryName "deployefcoremigrations" -minorVersion $minorVersion
+Update-VersionForExtensionTask -directoryName "runsqlcmd" -minorVersion $minorVersion
 Update-VersionForExtensionTask -directoryName "setappconfigappsetting" -minorVersion $minorVersion
 Update-VersionForExtensionTask -directoryName "setappconfigconnectionstring" -minorVersion $minorVersion
+Update-VersionForExtensionTask -directoryName "setjsonconfigconnectionstring" -minorVersion $minorVersion
+Update-VersionForExtensionTask -directoryName "setjsonvalue" -minorVersion $minorVersion

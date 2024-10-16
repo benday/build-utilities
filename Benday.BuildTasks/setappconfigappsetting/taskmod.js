@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sayHello = void 0;
+exports.sayHello = sayHello;
 function sayHello() {
     console.log('Hello World!');
 }
-exports.sayHello = sayHello;
