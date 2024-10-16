@@ -1,9 +1,14 @@
 # Build & Release Tools
+A collection of useful tools for Azure DevOps build and release pipelines.
 
 Written by Benjamin Day  
 Pluralsight Author | Microsoft MVP | Scrum.org Professional Scrum Trainer  
 https://www.benday.com  
+https://www.slidespeaker.ai
+
 info@benday.com 
+
+BTW, you might also be interested in some of our other utility projects [azdoutil](https://github.com/benday-inc/azdoutil) and [slnutil](https://github.com/benday-inc/slnutil).
 
 *Got ideas for Azure DevOps utilities you'd like to see? Found a bug? Let us know by submitting an issue https://github.com/benday/build-utilities/issues*. *Want to contribute? Submit a pull request.*
 
@@ -11,7 +16,7 @@ When you're doing builds and releases some things are kind of painful...or at le
 
 Once you install this extension, you'll see the following tasks when you open the Build/Release Task Catalog and go to the Utility section.  
 
-NOTE: the app.config tasks require .NET Core 3.1 or higher to be installed on your build agent.
+NOTE: the app.config tasks require .NET Core 8.0 or higher to be installed on your build agent.
 
 You might also be interested in our free Azure DevOps Utilities (azdoutil). Azdoutil is a collection of helpful command line tools for performing common administrative activities with Azure DevOps. https://github.com/benday-inc/azdoutil 
 
