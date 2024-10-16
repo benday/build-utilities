@@ -12,6 +12,7 @@
     "azure-pipelines-task-lib": "^4.12.1"
   },
   "devDependencies": {
+    "@types/node": "^22.7.5",
     "tslib": "^2.3.1"
   }
 }
