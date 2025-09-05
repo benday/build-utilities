@@ -1,14 +1,14 @@
 {
   "id": "661079d6-c3e5-4486-85a9-b538ed44087d",
   "name": "setappconfigconnectionstring",
-  "friendlyName": "Set Connection String (app.config / web.config)",
+  "friendlyName": "Set Connection String",
   "description": "Set a connection string in app.config or web.config.",
   "helpMarkDown": "",
   "category": "Utility",
   "author": "bendayconsulting",
   "version": {
     "Major": "3",
-    "Minor": "3",
+    "Minor": "4",
     "Patch": 0
   },
   "instanceNameFormat": "Update connection string \u0027$(keyname)\u0027",

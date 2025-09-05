@@ -1,14 +1,14 @@
 {
   "id": "d37c23be-c7e6-45c7-9dfe-25618716cc86",
   "name": "setappconfigappsetting",
-  "friendlyName": "Set App Setting Value (app.config / web.config)",
+  "friendlyName": "Set App Setting Value",
   "description": "Set an value in AppSettings in app.config or web.config.",
   "helpMarkDown": "",
   "category": "Utility",
   "author": "bendayconsulting",
   "version": {
     "Major": "3",
-    "Minor": "3",
+    "Minor": "4",
     "Patch": 0
   },
   "instanceNameFormat": "Update value for \u0027$(keyname)\u0027",

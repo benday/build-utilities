@@ -8,7 +8,7 @@
   "author": "bendayconsulting",
   "version": {
     "Major": "3",
-    "Minor": "3",
+    "Minor": "4",
     "Patch": 0
   },
   "instanceNameFormat": "Update connection string \u0027$(keyname)\u0027",
