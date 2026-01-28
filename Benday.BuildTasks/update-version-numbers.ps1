@@ -6,7 +6,7 @@ param (
 #
 # MAJOR VERSION NUMBER
 #
-$majorVersionNumber = 3
+$majorVersionNumber = 4
 
 function Update-VersionForExtension {
     param (

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"C:\\\\code\\\\github\\\\build-utilities\" status)",
+      "Bash(git -C \"C:\\\\code\\\\github\\\\build-utilities\" diff)",
+      "Bash(git -C \"C:\\\\code\\\\github\\\\build-utilities\" log --oneline -5)",
+      "Bash(git -C \"C:\\\\code\\\\github\\\\build-utilities\" add CLAUDE.md)",
+      "Bash(git -C \"C:\\\\code\\\\github\\\\build-utilities\" commit -m \"$\\(cat <<''EOF''\nAdd CLAUDE.md for Claude Code guidance\n\n🤖 Generated with [Claude Code]\\(https://claude.ai/code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+    ]
+  }
+}
