@@ -3,9 +3,13 @@
   "name": "runsqlcmd",
   "friendlyName": "Run SQL using SqlCmd",
   "description": "Run SQL using SqlCmd",
-  "helpMarkDown": "",
+  "helpMarkDown": "[More information](https://github.com/benday/build-utilities)",
   "category": "Utility",
-  "author": "bendayconsulting",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "author": "Benjamin Day Consulting, Inc.",
   "version": {
     "Major": "4",
     "Minor": "0",

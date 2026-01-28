@@ -4,7 +4,9 @@ A collection of useful tools for Azure DevOps build and release pipelines.
 Written by Benjamin Day  
 Microsoft MVP | Azure DevOps & GitHub Specialist  
 https://www.benday.com  
+https://www.honestcheetah.com
 info@benday.com  
+YouTube: https://www.youtube.com/@_benday  
 
 *Got ideas for Azure DevOps utilities you'd like to see? Found a bug? Let us know by submitting an issue https://github.com/benday/build-utilities/issues*. *Want to contribute? Submit a pull request.*
 
@@ -12,7 +14,7 @@ When you're doing builds and releases some things are kind of painful...or at le
 
 Once you install this extension, you'll see the following tasks when you open the Build/Release Task Catalog and go to the Utility section.  
 
-NOTE: the app.config tasks require .NET Core 10.0 or higher to be installed on your build agent.
+NOTE: the app.config tasks require .NET 10 or higher to be installed on your build agent.
 
 ## Tasks in Build & Release Tools:
 
@@ -49,6 +51,8 @@ NOTE: the app.config tasks require .NET Core 10.0 or higher to be installed on y
 ## Other Extensions from Benjamin Day Consulting
 
 **[Honest Cheetah for Azure DevOps](https://www.honestcheetah.com)** - Stop guessing when work will be done. Flow metrics and Monte Carlo forecasting right in your Boards hub. Uses your existing Azure DevOps data to forecast delivery - no story points required. Free to install.
+
+**[Honest Cheetah for GitHub](https://www.honestcheetah.com)** - Bring agile flow metrics and Monte Carlo forecasting to your GitHub projects. Track cycle time, throughput, and forecast delivery dates using your GitHub Issues and Pull Requests.
 
 ---
 

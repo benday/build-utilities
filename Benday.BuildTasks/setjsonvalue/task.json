@@ -3,9 +3,13 @@
   "name": "setjsonvalue",
   "friendlyName": "Set JSON Value",
   "description": "Set a string value into a json file. The typical use case would be to set a configuration value into appsettings.json.",
-  "helpMarkDown": "",
+  "helpMarkDown": "[More information](https://github.com/benday/build-utilities)",
   "category": "Utility",
-  "author": "bendayconsulting",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "author": "Benjamin Day Consulting, Inc.",
   "version": {
     "Major": "4",
     "Minor": "0",

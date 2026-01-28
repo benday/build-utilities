@@ -25,6 +25,25 @@
     }
   },
   "description": "Pipeline utilities for .NET teams. Deploy EF Core database migrations, run SQL scripts, and manage connection strings in web.config and appsettings.json.",
+  "tags": [
+    "deployment",
+    "configuration",
+    "entity-framework",
+    "ef-core",
+    "migrations",
+    "database",
+    "sql-server",
+    "connection-string",
+    "appsettings",
+    "web.config",
+    "app.config",
+    ".net",
+    "dotnet",
+    "json",
+    "xml",
+    "config",
+    "release-management"
+  ],
   "categories": [
     "Build and release"
   ],

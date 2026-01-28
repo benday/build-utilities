@@ -3,9 +3,13 @@
   "name": "setjsonconfigconnectionstring",
   "friendlyName": "Set Connection String (appsettings.json)",
   "description": "Set a connection string in an appsettings.json file for use by EF Core.",
-  "helpMarkDown": "",
+  "helpMarkDown": "[More information](https://github.com/benday/build-utilities)",
   "category": "Utility",
-  "author": "bendayconsulting",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "author": "Benjamin Day Consulting, Inc.",
   "version": {
     "Major": "4",
     "Minor": "0",

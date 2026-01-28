@@ -3,9 +3,13 @@
   "name": "setappconfigconnectionstring",
   "friendlyName": "Set Connection String",
   "description": "Set a connection string in app.config or web.config.",
-  "helpMarkDown": "",
+  "helpMarkDown": "[More information](https://github.com/benday/build-utilities)",
   "category": "Utility",
-  "author": "bendayconsulting",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "author": "Benjamin Day Consulting, Inc.",
   "version": {
     "Major": "4",
     "Minor": "0",

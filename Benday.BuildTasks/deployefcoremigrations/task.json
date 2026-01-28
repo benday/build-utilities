@@ -3,9 +3,13 @@
   "name": "deployefcoremigrations",
   "friendlyName": "Deploy Entity Framework Core Migrations",
   "description": "Deploy Entity Framework Core Migrations from a DLL.",
-  "helpMarkDown": "",
+  "helpMarkDown": "[More information](https://github.com/benday/build-utilities)",
   "category": "Utility",
-  "author": "bendayconsulting",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "author": "Benjamin Day Consulting, Inc.",
   "version": {
     "Major": "4",
     "Minor": "0",

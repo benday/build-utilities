@@ -3,9 +3,13 @@
   "name": "setappconfigappsetting",
   "friendlyName": "Set App Setting Value",
   "description": "Set an value in AppSettings in app.config or web.config.",
-  "helpMarkDown": "",
+  "helpMarkDown": "[More information](https://github.com/benday/build-utilities)",
   "category": "Utility",
-  "author": "bendayconsulting",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "author": "Benjamin Day Consulting, Inc.",
   "version": {
     "Major": "4",
     "Minor": "0",
