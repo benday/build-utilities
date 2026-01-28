@@ -49,10 +49,6 @@ namespace Benday.BuildUtilities.Core.ConsoleUi
                     {
                         new SetXmlAttributeCommand(args).Run();
                     }
-                    else if (commandName == Constants.CommandArgumentNameListDeployedEfCoreMigrations)
-                    {
-                        new ListDeployedEfCoreMigrationsCommand(args).Run();
-                    }
                     else
                     {
                         DisplayUsage();
@@ -99,8 +95,7 @@ namespace Benday.BuildUtilities.Core.ConsoleUi
             commands.Add(Constants.CommandArgumentNameSetConnectionString);
             commands.Add(Constants.CommandArgumentNameSetXmlAttribute);
             commands.Add(Constants.CommandArgumentNameSetJsonValue);
-            commands.Add(Constants.CommandArgumentNameListDeployedEfCoreMigrations);
-
+            
             foreach (var commandName in commands)
             {
                 builder.AppendLine(indent + commandName);

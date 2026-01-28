@@ -14,8 +14,7 @@ namespace Benday.BuildUtilities.Core.ConsoleUi
         public static readonly string CommandArgumentNameSetConnectionString = "setconnectionstring";
         public static readonly string CommandArgumentNameSetXmlAttribute = "setxmlattribute";
         public static readonly string CommandArgumentNameSetJsonValue = "setjsonvalue";
-        public static readonly string CommandArgumentNameListDeployedEfCoreMigrations = "listmigrations";
-
+        
         public static readonly string ArgumentNameConfigFilename = "filename";
         public static readonly string ArgumentNameKey = "key";
         public static readonly string ArgumentNameConnectionStringName = "name";
